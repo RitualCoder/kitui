@@ -13,6 +13,29 @@
       "spacing": "20px"
     }
   },
+  "components": {
+    "buttons": {
+      "padding": "10px 20px",
+      "border_radius": "5px",
+      "font_family": "Arial, sans-serif",
+      "font_size": "16px",
+      "font_weight": "bold",
+      "colors": {
+        "default": {
+          "background": "#007BFF",
+          "text": "#FFF"
+        },
+        "primary": {
+          "background": "#007BFF",
+          "text": "#FFF"
+        },
+        "secondary": {
+          "background": "#6C757D",
+          "text": "#FFF"
+        }
+      }
+    }
+  },
   "colors": {
     "dark": {
       "base": "#333",
