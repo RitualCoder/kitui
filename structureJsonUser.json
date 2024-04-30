@@ -1,0 +1,54 @@
+{
+  "layout": {
+    "containers": {
+      "max_width": "1200px",
+      "padding": "20px",
+      "display": "flex",
+      "flex_direction": "column",
+      "align_items": "center"
+    },
+    "flex_grid": {
+      "breakpoints": ["sm", "md", "lg"],
+      "columns": 12,
+      "spacing": "20px"
+    }
+  },
+  "colors": {
+    "dark": {
+      "base": "#333",
+      "darkened": "#111",
+      "lightened": "#666"
+    },
+    "light": {
+      "base": "#FFF",
+      "darkened": "#CCC",
+      "lightened": "#EEE"
+    },
+    "accent": "#007BFF"
+  },
+  "typography": {
+    "titles": {
+      "font_family": "Arial, sans-serif",
+      "sizes": {
+        "h1": "36px",
+        "h2": "30px",
+        "h3": "24px",
+        "h4": "20px",
+        "h5": "18px",
+        "h6": "16px"
+      },
+      "weights": {
+        "h1": "bold",
+        "h2": "bold",
+        "h3": "bold",
+        "h4": "bold",
+        "h5": "bold",
+        "h6": "bold"
+      }
+    },
+    "text": {
+      "font_family": "Arial, sans-serif",
+      "size": "14px"
+    }
+  }
+}
