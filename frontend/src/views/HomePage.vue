@@ -7,13 +7,15 @@
       <p style="font-size: 42px" class="font-medium">
         Build your own <span style="color: #5438a4">UI</span> kit
       </p>
-      <p style="font-size: 24px" class="font-regular">Make your website look 10x better</p>
+      <div style="display: flex; align-items: center; justify-content: center">
+        <p style="font-size: 24px; margin-right: 8px" class="font-regular">
+          Make your website look 10x
+        </p>
+        <word-slider :words="wordList" :interval="3000" />
+      </div>
     </div>
     <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-      <button class="primary-button">
-        Get Started
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
+      <button class="primary-button">Get Started</button>
       <button
         class="secondary-button"
         onclick="window.open('https://github.com/RitualCoder/kitui', '_blank')"
@@ -57,13 +59,19 @@ import expressIcon from '@/assets/icons/express-icon.svg'
 import vueIcon from '@/assets/icons/vue-icon.svg'
 import viteIcon from '@/assets/icons/vite-icon.svg'
 
+import wordSlider from '@/components/wordSlider.vue'
+
 export default {
   name: 'HomePage',
+  components: {
+    wordSlider
+  },
   data() {
     return {
       expressIcon,
       vueIcon,
-      viteIcon
+      viteIcon,
+      wordList: ['better', 'pretty', 'unique']
     }
   }
 }
@@ -116,12 +124,12 @@ html {
   position: absolute;
   width: 100%;
   height: 75%;
-  bottom: -30%;
+  bottom: -25%;
   left: -25%;
 }
 
 .grid1 {
-  transform: perspective(800px) rotate3d(1, 0, 0, 45deg) rotate3d(0, 1, 0, 30deg)
+  transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
     rotate3d(0, 0, 1, 18deg);
   width: 100%;
   height: 100%;
@@ -152,12 +160,12 @@ html {
   position: absolute;
   width: 100%;
   height: 75%;
-  top: -30%;
+  top: -25%;
   right: -25%;
 }
 
 .grid2 {
-  transform: perspective(800px) rotate3d(1, 0, 0, -45deg) rotate3d(0, 1, 0, -30deg)
+  transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
     rotate3d(0, 0, 1, 18deg);
 
   width: 100%;
