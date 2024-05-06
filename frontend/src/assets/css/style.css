@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Euclid-Medium';
+  src: url(../fonts/Euclid-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Euclid-Bold';
+  src: url(../fonts/Euclid-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Euclid-Light';
+  src: url(../fonts/Euclid-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Euclid-Regular';
+  src: url(../fonts/Euclid-Regular.ttf);
+}
+
+p {
+  margin: 0;
+  color: white;
+}
+
+.font-medium {
+  font-family: 'Euclid-Medium', sans-serif;
+}
+
+.font-bold {
+  font-family: 'Euclid-Bold', sans-serif;
+}
+
+.font-light {
+  font-family: 'Euclid-Light', sans-serif;
+}
+
+.font-regular {
+  font-family: 'Euclid-Regular', sans-serif;
+}
+
+.primary-button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #5438a4;
+  padding: 15px 40px;
+  font-size: 18px;
+  color: white;
+  border-radius: 16px;
+  font-family: 'Euclid-Regular', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+
+.primary-button:hover {
+  background-color: #3a2673;
+  color: #e7e7e7;
+}
+
+.secondary-button {
+  border: 1.5px solid white;
+  background-color: transparent;
+  padding: 15px 40px;
+  font-size: 18px;
+  color: white;
+  border-radius: 16px;
+  font-family: 'Euclid-Regular', sans-serif;
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border 0.2s ease-out,
+    color 0.2s ease-out;
+}
+
+.secondary-button:hover {
+  border: 1.5px solid #5438a4;
+  color: #5438a4;
+}
