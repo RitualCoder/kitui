@@ -3,10 +3,41 @@
     <img style="object-fit: cover" src="/logos/logo-dark.svg" alt="" />
   </div>
   <div class="middle-content">
-    <div style="display: flex; flex-direction: column; gap: 16px;">
-      <p>Build your own <span style="color: #5438a4; font-weight: 700">UI</span> kit</p>
-      <p style="font-size: 24px">Make your website look 10x better</p>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <p style="font-size: 42px" class="font-medium">
+        Build your own <span style="color: #5438a4">UI</span> kit
+      </p>
+      <p style="font-size: 24px" class="font-regular">Make your website look 10x better</p>
     </div>
+    <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
+      <button class="primary-button">
+        Get Started
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <button
+        class="secondary-button"
+        onclick="window.open('https://github.com/RitualCoder/kitui', '_blank')"
+      >
+        <i class="fa-brands fa-github"></i>
+        Github
+      </button>
+    </div>
+  </div>
+
+  <div
+    style="
+      display: flex;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      gap: 15px;
+      align-items: center;
+    "
+    class="icons"
+  >
+    <img :src="vueIcon" alt="" style="width: 32px; cursor: pointer" />
+    <img :src="viteIcon" alt="" style="width: 26px; cursor: pointer" />
+    <img :src="expressIcon" alt="" style="width: 32px; cursor: pointer" />
   </div>
 
   <div class="grid-container1">
@@ -22,8 +53,19 @@
 </template>
 
 <script>
+import expressIcon from '@/assets/icons/express-icon.svg'
+import vueIcon from '@/assets/icons/vue-icon.svg'
+import viteIcon from '@/assets/icons/vite-icon.svg'
+
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  data() {
+    return {
+      expressIcon,
+      vueIcon,
+      viteIcon
+    }
+  }
 }
 </script>
 
@@ -49,6 +91,17 @@ html {
   text-align: center;
 }
 
+.icons > img {
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.icons > img:hover {
+  transform: scale(1.1);
+}
+
 .logo {
   position: absolute;
   top: 50px;
@@ -56,13 +109,14 @@ html {
   z-index: 100;
   height: 50px;
   width: 50px;
+  cursor: pointer;
 }
 
 .grid-container1 {
   position: absolute;
   width: 100%;
   height: 75%;
-  bottom: -25%;
+  bottom: -30%;
   left: -25%;
 }
 
@@ -98,7 +152,7 @@ html {
   position: absolute;
   width: 100%;
   height: 75%;
-  top: -25%;
+  top: -30%;
   right: -25%;
 }
 
