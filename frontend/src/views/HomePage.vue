@@ -37,9 +37,9 @@
     "
     class="icons"
   >
-    <img :src="vueIcon" alt="" style="width: 32px; cursor: pointer" />
-    <img :src="viteIcon" alt="" style="width: 26px; cursor: pointer" />
-    <img :src="expressIcon" alt="" style="width: 32px; cursor: pointer" />
+    <img :src="vueIcon" alt="" style="width: 26px; cursor: pointer" />
+    <img :src="viteIcon" alt="" style="width: 21px; cursor: pointer" />
+    <img :src="expressIcon" alt="" style="width: 26px; cursor: pointer" />
   </div>
 
   <div class="grid-container1">
@@ -85,7 +85,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: black;
+  background-color: #141115;
 }
 
 .middle-content {
@@ -144,7 +144,11 @@ html {
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    rgba(20, 17, 21, 1) 0%,
+    rgba(20, 17, 21, 0.7) 50%,
+    rgba(20, 17, 21, 0) 100%
+  );
 }
 
 @keyframes animateGrid1 {
@@ -181,7 +185,11 @@ html {
   bottom: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(
+    rgba(20, 17, 21, 0) 0%,
+    rgba(20, 17, 21, 0.7) 50%,
+    rgba(20, 17, 21, 1) 100%
+  );
 }
 
 @keyframes animateGrid2 {
