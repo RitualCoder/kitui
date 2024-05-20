@@ -1,16 +1,11 @@
 <template>
-  <router-view/>
+  <Layout>
+    <router-view />
+  </Layout>
 </template>
 
-<style>
-/* :root {
-  --primary-color: #f9f9f9;
-  --secondary-color: #f9f9f9;
-  --tertiary-color: #f9f9f9;
-  --quaternary-color: #f9f9f9;
-} */
-</style>
-
-<script>
-
+<script setup>
+import Layout from '@/components/navigation/MainLayout.vue'
 </script>
+
+<style></style>

@@ -1,7 +1,4 @@
 <template>
-  <div class="logo">
-    <img style="object-fit: cover" src="/logos/logo-dark.svg" alt="" />
-  </div>
   <div class="middle-content">
     <div style="display: flex; flex-direction: column; gap: 16px">
       <p style="font-size: 42px" class="font-medium">
@@ -11,7 +8,7 @@
         <p style="font-size: 24px; margin-right: 8px" class="font-regular">
           Make your website look 10x
         </p>
-        <word-slider :words="wordList" :interval="3000" />
+        <wordSlider :words="wordList" :interval="3000" />
       </div>
     </div>
     <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
@@ -39,7 +36,7 @@
   >
     <img :src="vueIcon" alt="" style="width: 26px; cursor: pointer" />
     <img :src="viteIcon" alt="" style="width: 21px; cursor: pointer" />
-    <img :src="expressIcon" alt="" style="width: 26px; cursor: pointer" />
+    <ExpressIcon size="24" :color="isDark ? 'white' : 'black'" />
   </div>
 
   <div class="grid-container1">
@@ -55,23 +52,27 @@
 </template>
 
 <script>
-import expressIcon from '@/assets/icons/express-icon.svg'
+import ExpressIcon from '@/assets/icons/Express-Icon.vue'
 import vueIcon from '@/assets/icons/vue-icon.svg'
 import viteIcon from '@/assets/icons/vite-icon.svg'
 
 import wordSlider from '@/components/wordSlider.vue'
 
+import { useDark } from '@vueuse/core'
+const isDark = useDark()
+
 export default {
   name: 'HomePage',
   components: {
-    wordSlider
+    wordSlider,
+    ExpressIcon
   },
   data() {
     return {
-      expressIcon,
       vueIcon,
       viteIcon,
-      wordList: ['better', 'pretty', 'unique']
+      wordList: ['better', 'pretty', 'unique'],
+      isDark
     }
   }
 }
@@ -85,7 +86,7 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #141115;
+  /* background-color: #141115; */
 }
 
 .middle-content {
@@ -101,9 +102,7 @@ html {
 
 .icons > img {
   cursor: pointer;
-  transition:
-    transform 0.2s,
-    background-color 0.2s;
+  transition: transform 0.2s;
 }
 
 .icons > img:hover {
@@ -128,7 +127,7 @@ html {
   left: -25%;
 }
 
-.grid1 {
+[theme='dark'] .grid1 {
   transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
     rotate3d(0, 0, 1, 18deg);
   width: 100%;
@@ -139,7 +138,18 @@ html {
   animation: animateGrid1 2s linear infinite;
 }
 
-.bglinear1 {
+[theme='light'] .grid1 {
+  transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
+    rotate3d(0, 0, 1, 18deg);
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 1px, transparent 2px),
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 1px, transparent 2px);
+  background-size: 50px 50px;
+  animation: animateGrid1 2s linear infinite;
+}
+
+[theme='dark'] .bglinear1 {
   position: absolute;
   top: 0;
   height: 100%;
@@ -148,6 +158,18 @@ html {
     rgba(20, 17, 21, 1) 0%,
     rgba(20, 17, 21, 0.7) 50%,
     rgba(20, 17, 21, 0) 100%
+  );
+}
+
+[theme='light'] .bglinear1 {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    rgba(242, 245, 249, 1) 0%,
+    rgba(242, 245, 249, 0.7) 50%,
+    rgba(242, 245, 249, 0) 100%
   );
 }
 
@@ -168,7 +190,7 @@ html {
   right: -25%;
 }
 
-.grid2 {
+[theme='dark'] .grid2 {
   transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
     rotate3d(0, 0, 1, 18deg);
 
@@ -180,7 +202,19 @@ html {
   animation: animateGrid2 2s linear infinite;
 }
 
-.bglinear2 {
+[theme='light'] .grid2 {
+  transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
+    rotate3d(0, 0, 1, 18deg);
+
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(1, 1, 1, 1) 1px, transparent 2px),
+    linear-gradient(180deg, rgba(0, 0, 0, 1) 1px, transparent 2px);
+  background-size: 50px 50px;
+  animation: animateGrid2 2s linear infinite;
+}
+
+[theme='dark'] .bglinear2 {
   position: absolute;
   bottom: 0;
   height: 100%;
@@ -192,6 +226,18 @@ html {
   );
 }
 
+[theme='light'] .bglinear2 {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    rgba(242, 245, 249, 0) 0%,
+    rgba(242, 245, 249, 0.7) 50%,
+    rgba(242, 245, 249, 1) 100%
+  );
+}
+
 @keyframes animateGrid2 {
   0% {
     background-position: 0 0;
@@ -199,5 +245,24 @@ html {
   100% {
     background-position: 0px -50px;
   }
+}
+
+.container-center {
+  background-color: var(--background-color-primary);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  padding: 2rem 4rem;
+  height: 200px;
+  width: 300px;
+  text-align: center;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: var(--background-color-secondary);
 }
 </style>
