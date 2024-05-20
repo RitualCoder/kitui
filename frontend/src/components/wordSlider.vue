@@ -66,7 +66,6 @@ export default {
   display: flex;
   height: 30px;
   overflow: hidden;
-  color: white;
   font-size: 24px;
   font-family: Euclid-Regular;
   justify-content: flex-start;

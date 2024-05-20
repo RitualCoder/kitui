@@ -18,9 +18,24 @@
   src: url(../fonts/Euclid-Regular.ttf);
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+[theme='dark'] {
+  background-color: #141115;
+  color: white;
+}
+
+[theme='light'] {
+  background-color: #f2f5f9;
+  color: black;
+}
+
 p {
   margin: 0;
-  color: white;
 }
 
 .font-medium {
@@ -61,11 +76,9 @@ p {
 }
 
 .secondary-button {
-  border: 1.5px solid white;
   background-color: transparent;
   padding: 15px 40px;
   font-size: 18px;
-  color: white;
   border-radius: 16px;
   font-family: 'Euclid-Regular', sans-serif;
   cursor: pointer;
@@ -76,6 +89,16 @@ p {
   transition:
     border 0.2s ease-out,
     color 0.2s ease-out;
+}
+
+[theme='dark'] .secondary-button {
+  border: 1.5px solid white;
+  color: white;
+}
+
+[theme='light'] .secondary-button {
+  border: 1.5px solid black;
+  color: black;
 }
 
 .secondary-button:hover {
