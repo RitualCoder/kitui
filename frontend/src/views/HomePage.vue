@@ -1,52 +1,56 @@
 <template>
-  <div class="middle-content">
-    <div style="display: flex; flex-direction: column; gap: 16px">
-      <p style="font-size: 42px" class="font-medium">
-        Build your own <span style="color: #5438a4">UI</span> kit
-      </p>
-      <div style="display: flex; align-items: center; justify-content: center">
-        <p style="font-size: 24px; margin-right: 8px" class="font-regular">
-          Make your website look 10x
+  <!-- Version mobile -->
+  <div v-if="isMobile">
+    <h1>Version Mobile</h1>
+  </div>
+
+  <div v-else>
+    <div class="middle-content">
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <p style="font-size: 42px" class="font-medium">
+          Build your own <span style="color: #5438a4">UI</span> kit
         </p>
-        <wordSlider :words="wordList" :interval="3000" />
+
+        <div style="display: flex; align-items: center; justify-content: center">
+          <p style="font-size: 24px; margin-right: 8px" class="font-regular">
+            Make your website look 10x
+          </p>
+          <word-slider :words="wordList" :interval="2500" />
+        </div>
+      </div>
+      <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
+        <app-button size="x-large">Get Started</app-button>
+        <app-button size="x-large" variant="outlined">
+          <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
+        </app-button>
       </div>
     </div>
-    <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-      <button class="primary-button">Get Started</button>
-      <button
-        class="secondary-button"
-        onclick="window.open('https://github.com/RitualCoder/kitui', '_blank')"
-      >
-        <i class="fa-brands fa-github"></i>
-        Github
-      </button>
-    </div>
-  </div>
 
-  <div
-    style="
-      display: flex;
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      gap: 15px;
-      align-items: center;
-    "
-    class="icons"
-  >
-    <img :src="vueIcon" alt="" style="width: 26px; cursor: pointer" />
-    <img :src="viteIcon" alt="" style="width: 21px; cursor: pointer" />
-    <ExpressIcon size="24" :color="isDark ? 'white' : 'black'" />
-  </div>
-
-  <div class="grid-container1">
-    <div class="grid1">
-      <div class="bglinear1"></div>
+    <div
+      style="
+        display: flex;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        gap: 15px;
+        align-items: center;
+      "
+      class="icons"
+    >
+      <img :src="vueIcon" alt="" style="width: 26px; cursor: pointer" />
+      <img :src="viteIcon" alt="" style="width: 21px; cursor: pointer" />
+      <ExpressIcon size="24" :color="$vuetify.theme.current.dark ? 'white' : 'black'" />
     </div>
-  </div>
-  <div class="grid-container2">
-    <div class="grid2">
-      <div class="bglinear2"></div>
+
+    <div class="grid-container1">
+      <div class="grid1">
+        <div class="bglinear1"></div>
+      </div>
+    </div>
+    <div class="grid-container2">
+      <div class="grid2">
+        <div class="bglinear2"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,22 +61,38 @@ import vueIcon from '@/assets/icons/vue-icon.svg'
 import viteIcon from '@/assets/icons/vite-icon.svg'
 
 import wordSlider from '@/components/wordSlider.vue'
-
-import { useDark } from '@vueuse/core'
-const isDark = useDark()
+import appButton from '@/components/buttons/AppButton.vue'
 
 export default {
   name: 'HomePage',
   components: {
     wordSlider,
-    ExpressIcon
+    ExpressIcon,
+    appButton
   },
   data() {
     return {
+      isMobile: false,
       vueIcon,
       viteIcon,
-      wordList: ['better', 'pretty', 'unique'],
-      isDark
+      wordList: ['better', 'pretty', 'unique']
+    }
+  },
+  beforeUnmount() {
+    if (typeof window === 'undefined') return
+
+    window.removeEventListener('resize', this.onResize, { passive: true })
+  },
+
+  mounted() {
+    this.onResize()
+
+    window.addEventListener('resize', this.onResize, { passive: true })
+  },
+
+  methods: {
+    onResize() {
+      this.isMobile = window.innerWidth < 900
     }
   }
 }
@@ -86,7 +106,6 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  /* background-color: #141115; */
 }
 
 .middle-content {
@@ -127,7 +146,7 @@ html {
   left: -25%;
 }
 
-[theme='dark'] .grid1 {
+.grid1 {
   transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
     rotate3d(0, 0, 1, 18deg);
   width: 100%;
@@ -138,7 +157,7 @@ html {
   animation: animateGrid1 2s linear infinite;
 }
 
-[theme='light'] .grid1 {
+.v-theme--light .grid1 {
   transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
     rotate3d(0, 0, 1, 18deg);
   width: 100%;
@@ -149,7 +168,7 @@ html {
   animation: animateGrid1 2s linear infinite;
 }
 
-[theme='dark'] .bglinear1 {
+.bglinear1 {
   position: absolute;
   top: 0;
   height: 100%;
@@ -161,7 +180,7 @@ html {
   );
 }
 
-[theme='light'] .bglinear1 {
+.v-theme--light .bglinear1 {
   position: absolute;
   top: 0;
   height: 100%;
@@ -190,7 +209,7 @@ html {
   right: -25%;
 }
 
-[theme='dark'] .grid2 {
+.grid2 {
   transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
     rotate3d(0, 0, 1, 18deg);
 
@@ -202,7 +221,7 @@ html {
   animation: animateGrid2 2s linear infinite;
 }
 
-[theme='light'] .grid2 {
+.v-theme--light .grid2 {
   transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
     rotate3d(0, 0, 1, 18deg);
 
@@ -214,7 +233,7 @@ html {
   animation: animateGrid2 2s linear infinite;
 }
 
-[theme='dark'] .bglinear2 {
+.bglinear2 {
   position: absolute;
   bottom: 0;
   height: 100%;
@@ -226,7 +245,7 @@ html {
   );
 }
 
-[theme='light'] .bglinear2 {
+.v-theme--light .bglinear2 {
   position: absolute;
   bottom: 0;
   height: 100%;
@@ -245,24 +264,5 @@ html {
   100% {
     background-position: 0px -50px;
   }
-}
-
-.container-center {
-  background-color: var(--background-color-primary);
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
-  padding: 2rem 4rem;
-  height: 200px;
-  width: 300px;
-  text-align: center;
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
-  background-color: var(--background-color-secondary);
 }
 </style>

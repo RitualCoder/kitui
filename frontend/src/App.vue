@@ -1,7 +1,9 @@
 <template>
-  <Layout>
-    <router-view />
-  </Layout>
+  <v-app>
+    <Layout>
+      <router-view />
+    </Layout>
+  </v-app>
 </template>
 
 <script setup>

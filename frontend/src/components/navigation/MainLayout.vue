@@ -1,5 +1,8 @@
 <template>
-  <div class="layout">
+  <div
+    :style="{ backgroundColor: theme.global.current.value.dark ? '#141115' : '#F2F5F9' }"
+    class="layout"
+  >
     <navBar />
     <main>
       <slot></slot>
@@ -9,6 +12,9 @@
 
 <script setup>
 import navBar from '@/components/navigation/navBar.vue'
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
 </script>
 
 <style scoped>

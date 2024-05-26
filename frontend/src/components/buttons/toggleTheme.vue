@@ -1,25 +1,25 @@
-<script setup>
-import { useColorMode } from '@vueuse/core'
-import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
-const colorMode = useColorMode({
-  modes: {
-    dark: 'dark',
-    light: 'light'
-  },
-  attribute: 'theme'
-})
-</script>
-
 <template>
   <div>
-    <button v-if="colorMode === 'dark'" @click="colorMode = 'light'" class="button-dark">
+    <button v-if="$vuetify.theme.current.dark" @click="toggleTheme" class="button-dark">
       <SunIcon style="color: #afabb3; width: 30px" />
     </button>
-    <button v-else @click="colorMode = 'dark'" class="button-light">
+    <button v-else @click="toggleTheme" class="button-light">
       <MoonIcon style="color: #4e4856; width: 30px" />
     </button>
   </div>
 </template>
+
+<script setup>
+import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline'
+import { useTheme } from 'vuetify'
+
+const theme = useTheme()
+
+// Fonction pour basculer le thème
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
+</script>
 
 <style scoped>
 button {
@@ -35,6 +35,7 @@ button {
     transform 0.5s,
     background-color 0.1s;
 }
+
 .button-dark:hover {
   transform: scale(1.1);
   background-color: #3f3b43;

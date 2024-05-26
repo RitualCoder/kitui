@@ -24,14 +24,9 @@ body {
   margin: 0;
 }
 
-[theme='dark'] {
-  background-color: #141115;
-  color: white;
-}
-
-[theme='light'] {
-  background-color: #f2f5f9;
-  color: black;
+.v-btn {
+  font-family: 'Euclid-Medium', sans-serif;
+  text-transform: none !important;
 }
 
 p {
@@ -52,56 +47,4 @@ p {
 
 .font-regular {
   font-family: 'Euclid-Regular', sans-serif;
-}
-
-.primary-button {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  background-color: #5438a4;
-  padding: 15px 40px;
-  font-size: 18px;
-  color: white;
-  border-radius: 16px;
-  font-family: 'Euclid-Regular', sans-serif;
-  cursor: pointer;
-  transition: background-color 0.2s ease-out;
-}
-
-.primary-button:hover {
-  background-color: #3a2673;
-  color: #e7e7e7;
-}
-
-.secondary-button {
-  background-color: transparent;
-  padding: 15px 40px;
-  font-size: 18px;
-  border-radius: 16px;
-  font-family: 'Euclid-Regular', sans-serif;
-  cursor: pointer;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  transition:
-    border 0.2s ease-out,
-    color 0.2s ease-out;
-}
-
-[theme='dark'] .secondary-button {
-  border: 1.5px solid white;
-  color: white;
-}
-
-[theme='light'] .secondary-button {
-  border: 1.5px solid black;
-  color: black;
-}
-
-.secondary-button:hover {
-  border: 1.5px solid #5438a4;
-  color: #5438a4;
 }

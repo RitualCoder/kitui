@@ -1,19 +1,24 @@
 <template>
-  <div class="logo">
-    <KituiIcon :color1="isDark ? 'white' : 'black'" size="54" />
-  </div>
-  <div class="toggle-theme">
-    <toggleTheme />
+  <div style="height: 150px">
+    <div class="logo">
+      <KituiIcon
+        :color1="$vuetify.theme.current.dark ? 'white' : 'black'"
+        size="54"
+        :color2="colorStore.primaryColor"
+      />
+    </div>
+    <div class="toggle-theme">
+      <toggleTheme />
+    </div>
   </div>
 </template>
 
 <script setup>
 import KituiIcon from '@/assets/icons/Kitui-Icon.vue'
 import toggleTheme from '@/components/buttons/toggleTheme.vue'
+import { useColorStore } from '@/stores/colorStore'
 
-import { useDark } from '@vueuse/core'
-
-const isDark = useDark()
+const colorStore = useColorStore()
 </script>
 
 <style>
