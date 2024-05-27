@@ -22,7 +22,8 @@ export default {
   props: {
     variant: {
       type: String,
-      include: ['text', 'outlined', 'default'],
+      validator: (value) => ['text', 'outlined', 'default'].includes(value),
+      required: false,
       default: 'default'
     }
   },

@@ -39,6 +39,10 @@ h6 {
   text-transform: none !important;
 }
 
+.v-text-field .v-field {
+  border-radius: 12px;
+}
+
 p {
   margin: 0;
 }

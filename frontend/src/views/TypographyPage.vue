@@ -36,8 +36,8 @@
           label="Select typography"
           :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
           variant="outlined"
-        ></v-select>
-        <h1>The quick brown fox jumps over the lazy dog.</h1>
+        />
+        <h1 style="text-align: center">The quick brown fox jumps over the lazy dog.</h1>
       </div>
       <div
         style="
@@ -54,140 +54,360 @@
         <h2 style="text-align: center; font-family: 'Euclid-regular'">Headings</h2>
         <v-row style="width: 100%">
           <v-col cols="6">
-            <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
+            <div style="display: flex; width: 100%; justify-content: center">
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h1.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h1.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="h2.fontSize"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
-                <div>
-                  <slider-button
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h1.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h1.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
-                </div>
-              </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h1</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="6">
-            <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
-                    hide-details
-                    style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
-                </div>
-                <div>
-                  <slider-button
-                    hide-details
-                    style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
-                </div>
-              </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h2</p>
-              </div>
-            </div>
-          </v-col>
-          <v-col cols="6">
-            <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
-                    hide-details
-                    style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
-                </div>
-                <div>
-                  <slider-button
-                    hide-details
-                    style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
               </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h3</p>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h1.fontSize}px`, fontWeight: `${h1.fontWeight}` }"
+                >
+                  h1
+                </p>
               </div>
             </div>
           </v-col>
           <v-col cols="6">
             <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h2.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h2.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="h3.fontSize"
+                    :max="h1.fontSize"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
-                <div>
-                  <slider-button
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h2.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h2.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
               </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h4</p>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h2.fontSize}px`, fontWeight: `${h2.fontWeight}` }"
+                >
+                  h2
+                </p>
               </div>
             </div>
           </v-col>
           <v-col cols="6">
             <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h3.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h3.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="h4.fontSize"
+                    :max="h2.fontSize"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
-                <div>
-                  <slider-button
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h3.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h3.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
               </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h5</p>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h3.fontSize}px`, fontWeight: `${h3.fontWeight}` }"
+                >
+                  h3
+                </p>
               </div>
             </div>
           </v-col>
           <v-col cols="6">
             <div style="display: flex; width: 100%">
-              <div style="display: flex; flex-direction: column; width: 50%">
-                <div>
-                  <slider-button
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h4.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h4.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="h5.fontSize"
+                    :max="h3.fontSize"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
-                <div>
-                  <slider-button
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h4.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h4.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
                     hide-details
                     style="width: 100%"
-                    :color="primaryColor"
-                  ></slider-button>
+                  />
                 </div>
               </div>
-              <div style="display: flex; justify-content: center; align-items: center; width: 50%">
-                <p style="text-align: center">h6</p>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h4.fontSize}px`, fontWeight: `${h4.fontWeight}` }"
+                >
+                  h4
+                </p>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="6">
+            <div style="display: flex; width: 100%">
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h5.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h5.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="h6.fontSize"
+                    :max="h4.fontSize"
+                    hide-details
+                    style="width: 100%"
+                  />
+                </div>
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h5.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h5.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
+                    hide-details
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h5.fontSize}px`, fontWeight: `${h5.fontWeight}` }"
+                >
+                  h5
+                </p>
+              </div>
+            </div>
+          </v-col>
+          <v-col cols="6">
+            <div style="display: flex; width: 100%">
+              <div style="display: flex; flex-direction: column; width: 70%; padding: 0px 30px">
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font size</p>
+                    <h3 style="color: #aa9bd1">{{ h6.fontSize }} px</h3>
+                  </div>
+                  <v-slider
+                    v-model="h6.fontSize"
+                    step="1"
+                    :color="primaryColor"
+                    :min="16"
+                    :max="h5.fontSize"
+                    hide-details
+                    style="width: 100%"
+                  />
+                </div>
+                <div style="margin: 10px">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-family: Euclid-Bold;
+                      align-items: center;
+                      margin: 0px 10px;
+                    "
+                  >
+                    <p>Font weight</p>
+                    <h3 style="color: #aa9bd1">{{ h6.fontWeight }}</h3>
+                  </div>
+                  <v-slider
+                    v-model="h6.fontWeight"
+                    step="100"
+                    :color="primaryColor"
+                    :max="900"
+                    :min="100"
+                    hide-details
+                    style="width: 100%"
+                  />
+                </div>
+              </div>
+              <div style="display: flex; justify-content: center; align-items: center; width: 30%">
+                <p
+                  style="text-align: center"
+                  :style="{ fontSize: `${h6.fontSize}px`, fontWeight: `${h6.fontWeight}` }"
+                >
+                  h6
+                </p>
               </div>
             </div>
           </v-col>
@@ -212,13 +432,13 @@
 <script>
 import { useColorStore } from '@/stores/colorStore'
 import AppButton from '@/components/buttons/AppButton.vue'
-import sliderButton from '@/components/buttons/sliderButton.vue'
+
+import { useTypoStore } from '@/stores/typoStore'
 
 export default {
   name: 'TypographyPage',
   components: {
     AppButton,
-    sliderButton
   },
   data() {
     return {
@@ -243,183 +463,38 @@ export default {
     }
   },
   setup() {
+    const typoStore = useTypoStore()
     const colorStore = useColorStore()
+
     const primaryColor = colorStore.primaryColor
-    const setPrimaryColor = colorStore.setPrimaryColor
+
+    const h1 = typoStore.h1
+    const h2 = typoStore.h2
+    const h3 = typoStore.h3
+    const h4 = typoStore.h4
+    const h5 = typoStore.h5
+    const h6 = typoStore.h6
+
+    const updateFontSize = (size, value) => {
+      typoStore.changeFontSize(size, value)
+    }
+    const updateFontWeight = (size, value) => {
+      typoStore.changeFontWeight(size, value)
+    }
 
     return {
-      primaryColor,
-      setPrimaryColor
+      updateFontSize,
+      updateFontWeight,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      primaryColor
     }
   }
 }
 </script>
 
-<style>
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.middle-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  font-size: 48px;
-  line-height: 1;
-  text-align: center;
-}
-
-.icons > img {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.icons > img:hover {
-  transform: scale(1.1);
-}
-
-.logo {
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  z-index: 100;
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-}
-
-.grid-container1 {
-  position: absolute;
-  width: 100%;
-  height: 75%;
-  bottom: -25%;
-  left: -25%;
-}
-
-.grid1 {
-  transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
-    rotate3d(0, 0, 1, 18deg);
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 2px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.8) 1px, transparent 2px);
-  background-size: 50px 50px;
-  animation: animateGrid1 2s linear infinite;
-}
-
-.v-theme--light .grid1 {
-  transform: perspective(500px) rotate3d(1, 0, 0, 40deg) rotate3d(0, 1, 0, 30deg)
-    rotate3d(0, 0, 1, 18deg);
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 1px, transparent 2px),
-    linear-gradient(180deg, rgba(0, 0, 0, 1) 1px, transparent 2px);
-  background-size: 50px 50px;
-  animation: animateGrid1 2s linear infinite;
-}
-
-.bglinear1 {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    rgba(20, 17, 21, 1) 0%,
-    rgba(20, 17, 21, 0.7) 50%,
-    rgba(20, 17, 21, 0) 100%
-  );
-}
-
-.v-theme--light .bglinear1 {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    rgba(242, 245, 249, 1) 0%,
-    rgba(242, 245, 249, 0.7) 50%,
-    rgba(242, 245, 249, 0) 100%
-  );
-}
-
-@keyframes animateGrid1 {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0px 50px;
-  }
-}
-
-.grid-container2 {
-  position: absolute;
-  width: 100%;
-  height: 75%;
-  top: -25%;
-  right: -25%;
-}
-
-.grid2 {
-  transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
-    rotate3d(0, 0, 1, 18deg);
-
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 2px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.8) 1px, transparent 2px);
-  background-size: 50px 50px;
-  animation: animateGrid2 2s linear infinite;
-}
-
-.v-theme--light .grid2 {
-  transform: perspective(800px) rotate3d(1, 0, 0, -40deg) rotate3d(0, 1, 0, -30deg)
-    rotate3d(0, 0, 1, 18deg);
-
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, rgba(1, 1, 1, 1) 1px, transparent 2px),
-    linear-gradient(180deg, rgba(0, 0, 0, 1) 1px, transparent 2px);
-  background-size: 50px 50px;
-  animation: animateGrid2 2s linear infinite;
-}
-
-.bglinear2 {
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    rgba(20, 17, 21, 0) 0%,
-    rgba(20, 17, 21, 0.7) 50%,
-    rgba(20, 17, 21, 1) 100%
-  );
-}
-
-.v-theme--light .bglinear2 {
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    rgba(242, 245, 249, 0) 0%,
-    rgba(242, 245, 249, 0.7) 50%,
-    rgba(242, 245, 249, 1) 100%
-  );
-}
-
-@keyframes animateGrid2 {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 0px -50px;
-  }
-}
-</style>
+<style scoped></style>
