@@ -22,11 +22,25 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Euclid-Medium', sans-serif;
 }
 
 .v-btn {
   font-family: 'Euclid-Medium', sans-serif;
   text-transform: none !important;
+}
+
+.v-text-field .v-field {
+  border-radius: 12px;
 }
 
 p {

@@ -8,7 +8,7 @@
     <div class="middle-content">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <p style="font-size: 42px" class="font-medium">
-          Build your own <span style="color: #5438a4">UI</span> kit
+          Build your own <span :style="{ color: primaryColor }">UI</span> kit
         </p>
 
         <div style="display: flex; align-items: center; justify-content: center">
@@ -19,7 +19,9 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <app-button size="x-large">Get Started</app-button>
+        <app-button size="x-large" @click="() => $router.push({ name: 'Typography' })"
+          >Get Started
+        </app-button>
         <app-button size="x-large" variant="outlined">
           <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
         </app-button>
@@ -63,6 +65,8 @@ import viteIcon from '@/assets/icons/vite-icon.svg'
 import wordSlider from '@/components/wordSlider.vue'
 import appButton from '@/components/buttons/AppButton.vue'
 
+import { useColorStore } from '@/stores/colorStore'
+
 export default {
   name: 'HomePage',
   components: {
@@ -93,6 +97,14 @@ export default {
   methods: {
     onResize() {
       this.isMobile = window.innerWidth < 900
+    }
+  },
+  setup() {
+    const colorStore = useColorStore()
+    const primaryColor = colorStore.primaryColor
+
+    return {
+      primaryColor
     }
   }
 }

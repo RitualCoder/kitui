@@ -1,13 +1,13 @@
 <template>
   <v-btn
+    :variant="variant"
     v-bind="$attrs"
     @click="$emit('click')"
     :ripple="false"
     elevation="0"
     :style="{
-      backgroundColor: variant === 'outlined' ? 'transparent' : primaryColor,
-      border: variant === 'outlined' ? '2px solid ' + primaryColor : '',
-      color: variant === 'outlined' ? primaryColor : 'white'
+      backgroundColor: variant === 'default' ? primaryColor : 'transparent',
+      color: variant === 'default' ? 'white' : ''
     }"
   >
     <slot></slot>
@@ -22,7 +22,9 @@ export default {
   props: {
     variant: {
       type: String,
-      default: 'default' // Par défaut, le bouton est de type default
+      validator: (value) => ['text', 'outlined', 'default'].includes(value),
+      required: false,
+      default: 'default'
     }
   },
   setup() {
@@ -41,7 +43,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
   border-radius: 12px;
   cursor: pointer;
   padding: 15px 40px;

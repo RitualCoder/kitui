@@ -8,6 +8,11 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: HomePage
+    },
+    {
+      path: '/typography',
+      name: 'Typography',
+      component: () => import('../views/TypographyPage.vue')
     }
   ]
 })
