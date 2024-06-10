@@ -14,6 +14,11 @@ const router = createRouter({
       path: '/typography',
       name: 'Typography',
       component: TypographyPage
+    },
+    {
+      path:'/accent-colors',
+      name: 'AccentColors',
+      component: () => import('../views/AccentColorsPage.vue')
     }
   ]
 })
