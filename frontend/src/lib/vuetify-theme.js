@@ -1,5 +1,8 @@
 export const theme = {
   defaultTheme: 'dark',
+  colors: {
+    primary: '#5438A4'
+  },
   themes: {
     light: {
       primary: '#5438A4',
@@ -18,6 +21,12 @@ export const theme = {
       info: '#2196F3',
       success: '#4CAF50',
       warning: '#FB8C00'
+    }
+  },
+  defaults: {
+    VBtn: {
+      color: '#5438A4',
+      rounded: true
     }
   }
 }

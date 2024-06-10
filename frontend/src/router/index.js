@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '../views/HomePage.vue'
+import TypographyPage from '../views/TypographyPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,7 +13,7 @@ const router = createRouter({
     {
       path: '/typography',
       name: 'Typography',
-      component: () => import('../views/TypographyPage.vue')
+      component: TypographyPage
     }
   ]
 })

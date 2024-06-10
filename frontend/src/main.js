@@ -21,7 +21,15 @@ pinia.use(piniaPluginPersistedstate)
 const vuetify = createVuetify({
   components,
   directives,
-  theme
+  theme: {
+    options: {
+      customProperties: true
+    },
+    colors: theme.colors,
+    defaultTheme: theme.defaultTheme,
+    themes: theme.themes
+  },
+  defaults: theme.defaults
 })
 
 const app = createApp(App)

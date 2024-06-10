@@ -19,12 +19,18 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <app-button size="x-large" @click="() => $router.push({ name: 'Typography' })"
-          >Get Started
-        </app-button>
-        <app-button size="x-large" variant="outlined">
-          <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
-        </app-button>
+        <router-link to="/typography">
+          <v-btn elevation="0" size="x-large">Get Started </v-btn>
+        </router-link>
+        <a href="https://github.com/RitualCoder/kitui" target="_blank">
+          <v-btn
+            size="x-large"
+            variant="outlined"
+            :color="$vuetify.theme.current.dark ? 'white' : '#5438A4'"
+          >
+            <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
+          </v-btn>
+        </a>
       </div>
     </div>
 
@@ -63,7 +69,6 @@ import vueIcon from '@/assets/icons/vue-icon.svg'
 import viteIcon from '@/assets/icons/vite-icon.svg'
 
 import wordSlider from '@/components/wordSlider.vue'
-import appButton from '@/components/buttons/AppButton.vue'
 
 import { useColorStore } from '@/stores/colorStore'
 
@@ -72,7 +77,6 @@ export default {
   components: {
     wordSlider,
     ExpressIcon,
-    appButton
   },
   data() {
     return {

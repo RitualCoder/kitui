@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{ backgroundColor: $vuetify.theme.current.dark ? '#141115' : '#F2F5F9' }">
     <v-app-bar elevation="0" style="background-color: transparent; padding: 30px">
       <template v-slot:prepend>
         <KituiIcon
@@ -7,7 +7,7 @@
           size="54"
           :color2="colorStore.primaryColor"
           @click="() => $router.push({ name: 'Home' })"
-          style="cursor: pointer;"
+          style="cursor: pointer"
         />
       </template>
       <template v-slot:append>
