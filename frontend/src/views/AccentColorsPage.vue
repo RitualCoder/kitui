@@ -21,7 +21,7 @@
         <div :style="{ backgroundColor: accentColor}" class="color-circle"></div>
         {{ accentColor }}
       </v-btn>
-      <v-color-picker v-if="showColorPicker" v-model="accentColor" flat @change="saveColor" class="color-picker"></v-color-picker>
+      <v-color-picker hide-inputs v-if="showColorPicker" v-model="accentColor" flat @change="saveColor" class="color-picker"></v-color-picker>
     </div>
   </v-col>
 </v-row>
@@ -77,6 +77,16 @@
           </div>
         </v-col>
       </v-row>
+      <div style="width: 100%; display: flex; justify-content: space-between; padding: 0px 30px">
+      <v-btn variant="text" size="x-large">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Accent color</span>
+      </v-btn>
+      <v-btn variant="text" size="x-large">
+        <span style="margin-right: 8px">Layout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </v-btn>
+    </div>
     </v-container>
   </v-main>
 </template>
