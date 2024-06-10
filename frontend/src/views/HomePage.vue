@@ -19,7 +19,7 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <router-link to="/typography">
+        <router-link to="/accent-colors">
           <v-btn elevation="0" size="x-large">Get Started </v-btn>
         </router-link>
         <a href="https://github.com/RitualCoder/kitui" target="_blank">
@@ -114,7 +114,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body,
 html {
   margin: 0;

@@ -1,112 +1,129 @@
 <template>
-  <v-main style="background-color: transparent">
-    <v-container fluid style="background-color: transparent">
-      <v-row>
-        <v-col cols="12">
-          <h1>
-            First of all select an
-            <span :style="{ color: accentColor }"> accent </span>
-            color
-          </h1>
-        </v-col>
-      </v-row>
-      <v-row align="center" justify="center">
-        <v-col cols="12">
-          <h2>Choose your own color</h2>
-        </v-col>
-        <v-col cols="12">
-          <div class="color-picker-container">
-            <v-btn size="x-large" @click="showColorPicker = !showColorPicker" elevation="0">
-              <div :style="{ backgroundColor: accentColor }" class="color-circle"></div>
-              {{ accentColor }}
-            </v-btn>
-            <v-color-picker
-              hide-inputs
-              v-if="showColorPicker"
-              v-model="accentColor"
-              flat
-              @change="saveColor"
-              class="color-picker"
-            ></v-color-picker>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row align="center" justify="center">
-        <v-col cols="12">
-          <h2>Bright, energizing colors</h2>
-        </v-col>
-        <v-col cols="auto" v-for="color in brightColors" :key="color.name">
-          <div
-            class="color-option"
-            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+  <v-container fluid style="background-color: transparent">
+    <v-row>
+      <v-col cols="12">
+        <h1>
+          First of all select an
+          <span :style="{ color: accentColor }"> accent </span>
+          color
+        </h1>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center">
+      <v-col cols="12">
+        <h2>Choose your own color</h2>
+      </v-col>
+      <v-col cols="12">
+        <div class="color-picker-container">
+          <v-btn
+            color="default"
+            size="x-large"
+            @click="showColorPicker = !showColorPicker"
+            elevation="0"
+            v-click-outside="closeColorPicker"
           >
-            <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
-              <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
-              {{ color.name }}
-            </v-btn>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row align="center" justify="center">
-        <v-col cols="12">
-          <h2>Neutral, soothing colors</h2>
-        </v-col>
-        <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
-          <div
-            class="color-option"
-            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
-          >
-            <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
-              <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
-              {{ color.name }}
-            </v-btn>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row align="center" justify="center">
-        <v-col cols="12">
-          <h2>Toned, modern colors</h2>
-        </v-col>
-        <v-col cols="auto" v-for="color in modernColors" :key="color.name">
-          <div
-            class="color-option"
-            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
-          >
-            <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
-              <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
-              {{ color.name }}
-            </v-btn>
-          </div>
-        </v-col>
-      </v-row>
-      <v-row align="center" justify="center">
-        <v-col cols="12">
-          <h2>Soft, pastel colors</h2>
-        </v-col>
-        <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
-          <div
-            class="color-option"
-            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
-          >
-            <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
-              <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
-              {{ color.name }}
-            </v-btn>
-          </div>
-        </v-col>
-      </v-row>
-      <div style="width: 100%; display: flex; justify-content: space-between; padding: 0px 30px">
-        <v-btn variant="text" size="x-large">
+            <div :style="{ backgroundColor: accentColor }" class="color-circle"></div>
+            {{ accentColor }}
+          </v-btn>
+          <v-color-picker
+            hide-inputs
+            v-if="showColorPicker"
+            v-model="accentColor"
+            flat
+            @change="saveColor"
+            class="color-picker"
+          ></v-color-picker>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center" style="margin-bottom: 2rem">
+      <v-col cols="12">
+        <h3>Bright, energizing colors</h3>
+      </v-col>
+      <v-col cols="auto" v-for="color in brightColors" :key="color.name">
+        <div
+          class="color-option"
+          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+        >
+          <v-btn size="x-large" color="default" @click="selectColor(color.value)" elevation="0">
+            <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
+            {{ color.name }}
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center" style="margin-bottom: 2rem">
+      <v-col cols="12">
+        <h3>Neutral, soothing colors</h3>
+      </v-col>
+      <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
+        <div
+          class="color-option"
+          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+        >
+          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+            <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
+            {{ color.name }}
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center" style="margin-bottom: 2rem">
+      <v-col cols="12">
+        <h3>Toned, modern colors</h3>
+      </v-col>
+      <v-col cols="auto" v-for="color in modernColors" :key="color.name">
+        <div
+          class="color-option"
+          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+        >
+          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+            <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
+            {{ color.name }}
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+    <v-row align="center" justify="center">
+      <v-col cols="12">
+        <h3>Soft, pastel colors</h3>
+      </v-col>
+      <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
+        <div
+          class="color-option"
+          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+        >
+          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+            <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
+            {{ color.name }}
+          </v-btn>
+        </div>
+      </v-col>
+    </v-row>
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 30px;
+        margin: 80px 0px 0px 0px;
+      "
+    >
+      <router-link to="/">
+        <v-btn color="white" variant="text" size="x-large">
           <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Accent color</span>
+          <span style="margin-left: 8px">Home</span>
         </v-btn>
-        <v-btn variant="text" size="x-large">
-          <span style="margin-right: 8px">Layout</span>
+      </router-link>
+
+      <router-link to="/typography">
+        <v-btn color="white" variant="text" size="x-large">
+          <span style="margin-right: 8px">Typography</span>
           <i class="fa-solid fa-arrow-right"></i>
         </v-btn>
-      </div>
-    </v-container>
-  </v-main>
+      </router-link>
+    </div>
+  </v-container>
 </template>
 
 <script>
@@ -153,6 +170,9 @@ export default {
       this.selectedColor = color
       this.saveColor()
     },
+    closeColorPicker() {
+      this.showColorPicker = false
+    },
     saveColor() {
       localStorage.setItem('accentColor', this.accentColor)
     }
@@ -191,14 +211,14 @@ export default {
 
 .color-picker-container {
   position: relative;
+  margin-bottom: 50px;
 }
 
 .color-picker {
   position: absolute;
-  right: 100%;
+  right: 80%;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
 }
 
 .color-category {

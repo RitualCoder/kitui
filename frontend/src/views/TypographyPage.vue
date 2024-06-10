@@ -6,7 +6,7 @@
 
   <div v-else>
     <!-- header -->
-    <div style=" display: flex; justify-content: center; width: 100%; margin-bottom: 50px">
+    <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 50px">
       <h1>
         Let's customize your
         <span
@@ -92,7 +92,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h1.fontSize}px`,
-                    fontWeight: `${typoStore.h1.fontWeight}`
+                    fontWeight: `${typoStore.h1.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h1
@@ -155,7 +156,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h2.fontSize}px`,
-                    fontWeight: `${typoStore.h2.fontWeight}`
+                    fontWeight: `${typoStore.h2.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h2
@@ -218,7 +220,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h3.fontSize}px`,
-                    fontWeight: `${typoStore.h3.fontWeight}`
+                    fontWeight: `${typoStore.h3.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h3
@@ -281,7 +284,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h4.fontSize}px`,
-                    fontWeight: `${typoStore.h4.fontWeight}`
+                    fontWeight: `${typoStore.h4.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h4
@@ -344,7 +348,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h5.fontSize}px`,
-                    fontWeight: `${typoStore.h5.fontWeight}`
+                    fontWeight: `${typoStore.h5.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h5
@@ -407,7 +412,8 @@
                   style="text-align: center"
                   :style="{
                     fontSize: `${typoStore.h6.fontSize}px`,
-                    fontWeight: `${typoStore.h6.fontWeight}`
+                    fontWeight: `${typoStore.h6.fontWeight}`,
+                    fontFamily: typoStore.fontFamily
                   }"
                 >
                   h6
@@ -421,10 +427,13 @@
 
     <!-- footer -->
     <div style="width: 100%; display: flex; justify-content: space-between; padding: 0px 30px">
-      <v-btn variant="text" size="x-large" color="white">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span style="margin-left: 8px">Accent color</span>
-      </v-btn>
+      <router-link to="/accent-colors">
+        <v-btn variant="text" size="x-large" color="white">
+          <i class="fa-solid fa-arrow-left"></i>  
+          <span style="margin-left: 8px">Accent color</span>
+        </v-btn>
+      </router-link>
+
       <v-btn variant="text" size="x-large" color="white">
         <span style="margin-right: 8px">Layout</span>
         <i class="fa-solid fa-arrow-right"></i>
@@ -448,7 +457,6 @@ export default {
   data() {
     return {
       isMobile: false,
-      ff: null
     }
   },
   beforeUnmount() {
@@ -470,34 +478,5 @@ export default {
       this.isMobile = window.innerWidth < 900
     }
   }
-
-  /* setup() {
-    const typoStore = useTypoStore()
-    const colorStore = useColorStore()
-
-    const primaryColor = colorStore.primaryColor
-
-    const h1 = typoStore.h1
-    const h2 = typoStore.h2
-    const h3 = typoStore.h3
-    const h4 = typoStore.h4
-    const h5 = typoStore.h5
-    const h6 = typoStore.h6
-    const fontFamily = typoStore.fontFamily
-    console.log('🚀 ~ setup ~ fontFamily:', fontFamily)
-
-    return {
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      fontFamily,
-      primaryColor
-    }
-  } */
 }
 </script>
-
-<style scoped></style>
