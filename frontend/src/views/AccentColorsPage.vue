@@ -181,3 +181,4 @@ export default {
   margin-top: 2rem; /* Add spacing between categories */
 }
 </style>
+

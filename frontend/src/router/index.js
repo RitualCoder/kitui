@@ -7,7 +7,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomePage
+      component: HomePage,
+      
     },
     {
       path: '/typography',
@@ -15,7 +16,7 @@ const router = createRouter({
       component: () => import('../views/TypographyPage.vue')
     },
     {
-      path:'/accent-colors',
+      path: '/accent-colors',
       name: 'AccentColors',
       component: () => import('../views/AccentColorsPage.vue')
     }
