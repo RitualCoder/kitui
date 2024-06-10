@@ -1,36 +1,45 @@
 <template>
-  <v-main style="background-color: transparent;">
-    <v-container fluid style="background-color: transparent;">
+  <v-main style="background-color: transparent">
+    <v-container fluid style="background-color: transparent">
       <v-row>
         <v-col cols="12">
-          <h1>First of all select an 
-            <span :style="{color:accentColor}">
-                 accent 
-            </span>
+          <h1>
+            First of all select an
+            <span :style="{ color: accentColor }"> accent </span>
             color
           </h1>
         </v-col>
       </v-row>
       <v-row align="center" justify="center">
-  <v-col cols="12">
-    <h2>Choose your own color</h2>
-  </v-col>
-  <v-col cols="12">
-    <div class="color-picker-container">
-      <v-btn size="x-large" @click="showColorPicker = !showColorPicker" elevation="0">
-        <div :style="{ backgroundColor: accentColor}" class="color-circle"></div>
-        {{ accentColor }}
-      </v-btn>
-      <v-color-picker hide-inputs v-if="showColorPicker" v-model="accentColor" flat @change="saveColor" class="color-picker"></v-color-picker>
-    </div>
-  </v-col>
-</v-row>
+        <v-col cols="12">
+          <h2>Choose your own color</h2>
+        </v-col>
+        <v-col cols="12">
+          <div class="color-picker-container">
+            <v-btn size="x-large" @click="showColorPicker = !showColorPicker" elevation="0">
+              <div :style="{ backgroundColor: accentColor }" class="color-circle"></div>
+              {{ accentColor }}
+            </v-btn>
+            <v-color-picker
+              hide-inputs
+              v-if="showColorPicker"
+              v-model="accentColor"
+              flat
+              @change="saveColor"
+              class="color-picker"
+            ></v-color-picker>
+          </div>
+        </v-col>
+      </v-row>
       <v-row align="center" justify="center">
         <v-col cols="12">
           <h2>Bright, energizing colors</h2>
         </v-col>
         <v-col cols="auto" v-for="color in brightColors" :key="color.name">
-          <div class="color-option" :style="selectedColor === color.value ? { borderColor: color.value } : {}">
+          <div
+            class="color-option"
+            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          >
             <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
               <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
               {{ color.name }}
@@ -43,7 +52,10 @@
           <h2>Neutral, soothing colors</h2>
         </v-col>
         <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
-          <div class="color-option" :style="selectedColor === color.value ? { borderColor: color.value } : {}">
+          <div
+            class="color-option"
+            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          >
             <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
               <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
               {{ color.name }}
@@ -56,7 +68,10 @@
           <h2>Toned, modern colors</h2>
         </v-col>
         <v-col cols="auto" v-for="color in modernColors" :key="color.name">
-          <div class="color-option" :style="selectedColor === color.value ? { borderColor: color.value } : {}">
+          <div
+            class="color-option"
+            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          >
             <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
               <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
               {{ color.name }}
@@ -69,7 +84,10 @@
           <h2>Soft, pastel colors</h2>
         </v-col>
         <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
-          <div class="color-option" :style="selectedColor === color.value ? { borderColor: color.value } : {}">
+          <div
+            class="color-option"
+            :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          >
             <v-btn size="x-large" @click="selectColor(color.value)" elevation="0">
               <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
               {{ color.name }}
@@ -78,15 +96,15 @@
         </v-col>
       </v-row>
       <div style="width: 100%; display: flex; justify-content: space-between; padding: 0px 30px">
-      <v-btn variant="text" size="x-large">
-        <i class="fa-solid fa-arrow-left"></i>
-        <span style="margin-left: 8px">Accent color</span>
-      </v-btn>
-      <v-btn variant="text" size="x-large">
-        <span style="margin-right: 8px">Layout</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </v-btn>
-    </div>
+        <v-btn variant="text" size="x-large">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span style="margin-left: 8px">Accent color</span>
+        </v-btn>
+        <v-btn variant="text" size="x-large">
+          <span style="margin-right: 8px">Layout</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </v-btn>
+      </div>
     </v-container>
   </v-main>
 </template>
@@ -131,18 +149,18 @@ export default {
   },
   methods: {
     selectColor(color) {
-      this.accentColor = color;
-      this.selectedColor = color;
-      this.saveColor();
+      this.accentColor = color
+      this.selectedColor = color
+      this.saveColor()
     },
     saveColor() {
-      localStorage.setItem('accentColor', this.accentColor);
+      localStorage.setItem('accentColor', this.accentColor)
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .v-main {
   display: flex;
   justify-content: center;
@@ -156,10 +174,6 @@ export default {
   align-items: center;
   text-align: center;
 }
-
-</style>
-
-<style scoped>
 .color-option {
   display: flex;
   align-items: center;
@@ -191,4 +205,3 @@ export default {
   margin-top: 2rem; /* Add spacing between categories */
 }
 </style>
-
