@@ -37,7 +37,11 @@ h6 {
 .v-btn {
   font-family: 'Euclid-Medium', sans-serif;
   text-transform: none !important;
+  border-radius: 12px !important;
+  letter-spacing: normal !important;
+  padding: 15px 40px !important;
 }
+
 
 .v-text-field .v-field {
   border-radius: 12px;

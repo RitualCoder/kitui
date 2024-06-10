@@ -19,7 +19,7 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <app-button size="x-large" @click="() => $router.push({ name: 'Typography' })"
+        <app-button variant="default" size="x-large" @click="() => $router.push({ name: 'Typography' })"
           >Get Started
         </app-button>
         <app-button size="x-large" variant="outlined">
