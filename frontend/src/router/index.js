@@ -4,9 +4,6 @@ import TypographyPage from '../views/TypographyPage.vue'
 import AccentColorsPage from '../views/AccentColorsPage.vue'
 
 const router = createRouter({
-  scrollBehavior() {
-    return { x: 0, y: 0 }
-  },
   history: createWebHistory(),
   routes: [
     {

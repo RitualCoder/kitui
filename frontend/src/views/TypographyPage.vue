@@ -471,6 +471,7 @@ export default {
   mounted() {
     this.onResize()
     window.addEventListener('resize', this.onResize, { passive: true })
+    window.scrollTo(0, 0)
   },
 
   methods: {

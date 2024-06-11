@@ -4,7 +4,7 @@
     <h1>Version Mobile</h1>
   </div>
 
-  <div v-else>
+  <template v-else>
     <div class="middle-content">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <p style="font-size: 42px" class="font-medium">
@@ -60,7 +60,7 @@
         <div class="bglinear2"></div>
       </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
@@ -155,11 +155,11 @@ html {
 }
 
 .grid-container1 {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 75%;
-  bottom: -25%;
-  left: -25%;
+  bottom: -55%;
+  left: -35%;
 }
 
 .grid1 {

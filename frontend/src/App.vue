@@ -30,8 +30,7 @@ const colorStore = useColorStore()
 
 <style>
 .main-content {
-  height: 100vh;
+  overflow: hidden;
   padding: 124px 10% 30px 10%;
-  overflow-y: auto;
 }
 </style>

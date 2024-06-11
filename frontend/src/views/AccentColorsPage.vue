@@ -176,6 +176,9 @@ export default {
     saveColor() {
       localStorage.setItem('accentColor', this.accentColor)
     }
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>
@@ -185,7 +188,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .v-container {
