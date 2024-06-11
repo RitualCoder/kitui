@@ -9,7 +9,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomePage
+      component: HomePage,
+      
     },
     {
       path: '/typography',

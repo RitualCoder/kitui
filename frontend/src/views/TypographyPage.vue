@@ -6,7 +6,7 @@
 
   <div v-else>
     <!-- header -->
-    <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 50px">
+    <div style=" display: flex; justify-content: center; width: 100%; margin-bottom: 50px">
       <h1>
         Let's customize your
         <span
