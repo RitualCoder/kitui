@@ -7,12 +7,18 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
-      component: HomePage
+      component: HomePage,
+      
     },
     {
       path: '/typography',
       name: 'Typography',
       component: () => import('../views/TypographyPage.vue')
+    },
+    {
+      path: '/accent-colors',
+      name: 'AccentColors',
+      component: () => import('../views/AccentColorsPage.vue')
     }
   ]
 })
