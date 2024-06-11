@@ -4,7 +4,7 @@
     <h1>Version Mobile</h1>
   </div>
 
-  <div v-else>
+  <template v-else>
     <div class="middle-content">
       <div style="display: flex; flex-direction: column; gap: 16px">
         <p style="font-size: 42px" class="font-medium">
@@ -19,12 +19,18 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <app-button variant="default" size="x-large" @click="() => $router.push({ name: 'Typography' })"
-          >Get Started
-        </app-button>
-        <app-button size="x-large" variant="outlined">
-          <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
-        </app-button>
+        <router-link to="/accent-colors">
+          <v-btn elevation="0" size="x-large">Get Started </v-btn>
+        </router-link>
+        <a href="https://github.com/RitualCoder/kitui" target="_blank">
+          <v-btn
+            size="x-large"
+            variant="outlined"
+            :color="$vuetify.theme.current.dark ? 'white' : '#5438A4'"
+          >
+            <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
+          </v-btn>
+        </a>
       </div>
     </div>
 
@@ -54,7 +60,7 @@
         <div class="bglinear2"></div>
       </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script>
@@ -63,7 +69,6 @@ import vueIcon from '@/assets/icons/vue-icon.svg'
 import viteIcon from '@/assets/icons/vite-icon.svg'
 
 import wordSlider from '@/components/wordSlider.vue'
-import appButton from '@/components/buttons/AppButton.vue'
 
 import { useColorStore } from '@/stores/colorStore'
 
@@ -72,7 +77,6 @@ export default {
   components: {
     wordSlider,
     ExpressIcon,
-    appButton
   },
   data() {
     return {
@@ -110,7 +114,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body,
 html {
   margin: 0;
@@ -151,11 +155,11 @@ html {
 }
 
 .grid-container1 {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 75%;
-  bottom: -25%;
-  left: -25%;
+  bottom: -55%;
+  left: -35%;
 }
 
 .grid1 {
