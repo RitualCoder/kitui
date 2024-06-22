@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="{ backgroundColor: $vuetify.theme.current.dark ? '#141115' : '#F2F5F9' }">
+  <v-app :style="{ backgroundColor: $vuetify.theme.current.dark ? '#141115' : '#ffffff' }">
     <v-app-bar elevation="0" style="background-color: transparent; padding: 30px">
       <template v-slot:prepend>
         <KituiIcon

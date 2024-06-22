@@ -1,7 +1,7 @@
 <template>
   <div
     class="cardContainer"
-    :style="{ backgroundColor: $vuetify.theme.current.dark ? '#2f2b33' : '#ffffff' }"
+    :style="{ backgroundColor: $vuetify.theme.current.dark ? '#2f2b33' : '#f2f5f9' }"
   >
     <slot></slot>
   </div>
