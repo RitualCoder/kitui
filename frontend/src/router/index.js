@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import TypographyPage from '../views/TypographyPage.vue'
 import AccentColorsPage from '../views/AccentColorsPage.vue'
 import ResultPage from '../views/ResultPage.vue'
+import ComponentsPage from '../views/ComponentsPage.vue' 
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       path:'/result',
       name: 'Result',
       component: ResultPage
+    },
+    {
+      path: '/components',
+      name: 'components',
+      component: ComponentsPage
     }
   ]
 })
