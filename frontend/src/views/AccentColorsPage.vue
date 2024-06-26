@@ -45,7 +45,12 @@
           class="color-option"
           :style="selectedColor === color.value ? { borderColor: color.value } : {}"
         >
-          <v-btn size="x-large" color="default" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            @click="selectColor(color.value)"
+            elevation="0"
+            style="height: auto"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -61,7 +66,12 @@
           class="color-option"
           :style="selectedColor === color.value ? { borderColor: color.value } : {}"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            style="height: auto"
+            @click="selectColor(color.value)"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -77,7 +87,12 @@
           class="color-option"
           :style="selectedColor === color.value ? { borderColor: color.value } : {}"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            style="height: auto"
+            @click="selectColor(color.value)"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -93,31 +108,36 @@
           class="color-option"
           :style="selectedColor === color.value ? { borderColor: color.value } : {}"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            style="height: auto"
+            @click="selectColor(color.value)"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
         </div>
       </v-col>
     </v-row>
-    <div
-      style="
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        padding: 0px 30px;
-        margin: 80px 0px 0px 0px;
-      "
-    >
+    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 50px;">
       <router-link to="/">
-        <v-btn color="white" variant="text" size="x-large">
+        <v-btn
+          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+          variant="text"
+          size="x-large"
+        >
           <i class="fa-solid fa-arrow-left"></i>
           <span style="margin-left: 8px">Home</span>
         </v-btn>
       </router-link>
 
       <router-link to="/typography">
-        <v-btn color="white" variant="text" size="x-large">
+        <v-btn
+          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+          variant="text"
+          size="x-large"
+        >
           <span style="margin-right: 8px">Typography</span>
           <i class="fa-solid fa-arrow-right"></i>
         </v-btn>
