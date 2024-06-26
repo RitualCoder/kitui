@@ -4,7 +4,6 @@
       <v-row justify="center">
         <v-col cols="12" md="6" class="d-flex align-center justify-center">
           <!-- Buttons Container -->
-
           <v-container>
             <v-row justify="center" align="center" class="mb-6">
               <v-col cols="12" class="d-flex justify-center mb-4">
@@ -24,20 +23,16 @@
         </v-col>
 
         <v-col cols="12" md="6">
-          <!-- Other Content Container -->
-          <v-col cols="12" md="4" class="py-6">
+          <v-col
+            cols="12"
+            md="6"
+            class="py-6"
+            style="display: flex; flex-direction: row; align-items: start"
+          >
             <!-- Card component -->
             <v-col
               cols="12"
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 2rem;
-                gap: 40px;
-                height: 250px;
-              "
+              style="display: flex; flex-direction: column; justify-content: center; gap: 40px"
             >
               <div
                 :style="{
@@ -54,205 +49,211 @@
                   <div style="width: 60px" class="subtitle"></div>
                 </div>
               </div>
+              <card-container style="width: 100%">
+                <v-col>
+                  <v-slider
+                    v-model="componentStore.card.borderRadius"
+                    step="1"
+                    :color="colorStore.primaryColor"
+                    :min="0"
+                    :max="50"
+                    hide-details
+                  />
+                </v-col>
+              </card-container>
+            </v-col>
+
+            <v-col
+              cols="12"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                gap: 40px;
+              "
+            >
+              <card-container style="width: 100%">
+                <button
+                  class="button-primary"
+                  :style="{
+                    border: componentStore.button.border + 'px solid',
+                    borderColor: colorStore.primaryColor,
+                    borderRadius: componentStore.button.borderRadius + 'px',
+                    padding:
+                      componentStore.button.padding +
+                      'px ' +
+                      componentStore.button.padding * 3 +
+                      'px',
+                    fontSize: componentStore.button.fontSize + 'px'
+                  }"
+                >
+                  Primary
+                </button>
+                <button
+                  class="button-secondary"
+                  :style="{
+                    border: componentStore.button.border + 'px solid',
+                    borderColor: colorStore.primaryColor,
+                    borderRadius: componentStore.button.borderRadius + 'px',
+                    padding:
+                      componentStore.button.padding +
+                      'px ' +
+                      componentStore.button.padding * 3 +
+                      'px',
+                    fontSize: componentStore.button.fontSize + 'px'
+                  }"
+                >
+                  Secondary
+                </button>
+                <button
+                  class="button-disabled"
+                  :style="{
+                    border: componentStore.button.border + 'px solid',
+                    borderColor: '#3f3a45',
+                    borderRadius: componentStore.button.borderRadius + 'px',
+                    padding:
+                      componentStore.button.padding +
+                      'px ' +
+                      componentStore.button.padding * 3 +
+                      'px',
+                    fontSize: componentStore.button.fontSize + 'px'
+                  }"
+                >
+                  Disabled
+                </button>
+              </card-container>
             </v-col>
           </v-col>
           <v-container>
             <v-row>
               <v-col cols="12" md="8" class="py-6">
-                <card-container style="margin-top: 80px; width: 100%">
-                  <v-col
-                    cols="4"
-                    style="
-                      display: flex;
-                      flex-direction: column;
-                      justify-content: center;
-                      align-items: center;
-                      padding: 2rem;
-                      gap: 40px;
-                    "
-                  >
-                    <button
-                      class="button-primary"
-                      :style="{
-                        border: componentStore.button.border + 'px solid',
-                        borderColor: colorStore.primaryColor,
-                        borderRadius: componentStore.button.borderRadius + 'px',
-                        padding:
-                          componentStore.button.padding +
-                          'px ' +
-                          componentStore.button.padding * 3 +
-                          'px',
-                        fontSize: componentStore.button.fontSize + 'px'
-                      }"
-                    >
-                      Primary
-                    </button>
-                    <button
-                      class="button-secondary"
-                      :style="{
-                        border: componentStore.button.border + 'px solid',
-                        borderColor: colorStore.primaryColor,
-                        borderRadius: componentStore.button.borderRadius + 'px',
-                        padding:
-                          componentStore.button.padding +
-                          'px ' +
-                          componentStore.button.padding * 3 +
-                          'px',
-                        fontSize: componentStore.button.fontSize + 'px'
-                      }"
-                    >
-                      Secondary
-                    </button>
-                    <button
-                      class="button-disabled"
-                      :style="{
-                        border: componentStore.button.border + 'px solid',
-                        borderColor: '#3f3a45',
-                        borderRadius: componentStore.button.borderRadius + 'px',
-                        padding:
-                          componentStore.button.padding +
-                          'px ' +
-                          componentStore.button.padding * 3 +
-                          'px',
-                        fontSize: componentStore.button.fontSize + 'px'
-                      }"
-                    >
-                      Disabled
-                    </button>
-                  </v-col>
-                </card-container>
-
-                <v-row>
-                  <v-col cols="12">
-                    <v-slider
-              v-model="componentStore.card.borderRadius"
-              step="1"
-              :color="colorStore.primaryColor"
-              :min="0"
-              :max="50"
-              hide-details
-            />
-                  </v-col>
-                </v-row>
-                
                 <!-- Heading elements -->
                 <v-row>
-                    <card-container style="">
-                      <div class="text-subtitle-1" style="display: flex; align-items: center; justify-content: space-around;">
-                        <p
-                          style="text-align: center ;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h1.fontSize}px`,
-                            fontWeight: `${typoStore.h1.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h1
-                        </p>
+                  <card-container>
+                    <div
+                      class="text-subtitle-1"
+                      style="display: flex; align-items: center; justify-content: space-around"
+                    >
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h1.fontSize}px`,
+                          fontWeight: `${typoStore.h1.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h1
+                      </p>
 
-                        <p
-                          style="text-align: center ;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h2.fontSize}px`,
-                            fontWeight: `${typoStore.h2.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h2
-                        </p>
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h2.fontSize}px`,
+                          fontWeight: `${typoStore.h2.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h2
+                      </p>
 
-                        <p
-                          style="text-align: center ;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h3.fontSize}px`,
-                            fontWeight: `${typoStore.h3.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h3
-                        </p>
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h3.fontSize}px`,
+                          fontWeight: `${typoStore.h3.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h3
+                      </p>
 
-                        <p
-                          style="text-align: center ;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h4.fontSize}px`,
-                            fontWeight: `${typoStore.h4.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h4
-                        </p>
-                        <p
-                          style="text-align: center ;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h5.fontSize}px`,
-                            fontWeight: `${typoStore.h5.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h5
-                        </p>
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h4.fontSize}px`,
+                          fontWeight: `${typoStore.h4.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h4
+                      </p>
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h5.fontSize}px`,
+                          fontWeight: `${typoStore.h5.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h5
+                      </p>
 
-                        <p
-                          style="text-align: center;margin-right: 2rem;"
-                          :style="{
-                            fontSize: `${typoStore.h6.fontSize}px`,
-                            fontWeight: `${typoStore.h6.fontWeight}`,
-                            fontFamily: typoStore.fontFamily
-                          }"
-                        >
-                          h6
-                        </p>
-                      </div>
-                    </card-container>
+                      <p
+                        style="text-align: center; margin-right: 2rem"
+                        :style="{
+                          fontSize: `${typoStore.h6.fontSize}px`,
+                          fontWeight: `${typoStore.h6.fontWeight}`,
+                          fontFamily: typoStore.fontFamily
+                        }"
+                      >
+                        h6
+                      </p>
+                    </div>
+                  </card-container>
                 </v-row>
-
               </v-col>
             </v-row>
+
             <v-row>
-              <card-container style="width: 100%">
-                <v-col cols="12" md="8" class="py-6">
-                <v-row>
-                  <v-col cols="12">
-                    <input
-                      type="text"
-                      :class="['input']"
-                      placeholder="Placeholder"
-                      :style="{
-                        borderRadius: '5px',
-                        padding: '10px 20px',
-                        marginBottom: '20px'
-                      }"
-                    />
-                  </v-col>
-                  <v-col cols="12">
-                    <input
-                      type="text"
-                      :class="['input', 'input-success']"
-                      placeholder="Placeholder"
-                      :style="{
-                        borderRadius: '5px',
-                        padding: '10px 20px',
-                        marginBottom: '20px'
-                      }"
-                    />
-                  </v-col>
-                  <v-col cols="12">
-                    <input
-                      type="text"
-                      :class="['input', 'input-error']"
-                      placeholder="Placeholder"
-                      :style="{
-                        borderRadius: '5px',
-                        padding: '10px 20px',
-                        marginBottom: '20px'
-                      }"
-                    />
-                  </v-col>
-                </v-row>
+              <v-col cols="12" md="6">
+                <card-container style="width: 100%">Layout</card-container>
               </v-col>
-        </card-container>
-             
+              <v-col cols="12" md="6">
+                <card-container style="width: 100%">
+                  <v-col cols="12" class="py-6">
+                    <v-row>
+                      <v-col cols="12">
+                        <input
+                          type="text"
+                          :class="['input']"
+                          placeholder="Placeholder"
+                          :style="{
+                            borderRadius: '5px',
+                            padding: '10px 20px',
+                            marginBottom: '20px'
+                          }"
+                        />
+                      </v-col>
+                      <v-col cols="12">
+                        <input
+                          type="text"
+                          :class="['input', 'input-success']"
+                          placeholder="Placeholder"
+                          :style="{
+                            borderRadius: '5px',
+                            padding: '10px 20px',
+                            marginBottom: '20px'
+                          }"
+                        />
+                      </v-col>
+                      <v-col cols="12">
+                        <input
+                          type="text"
+                          :class="['input', 'input-error']"
+                          placeholder="Placeholder"
+                          :style="{
+                            borderRadius: '5px',
+                            padding: '10px 20px',
+                            marginBottom: '20px'
+                          }"
+                        />
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </card-container>
+              </v-col>
             </v-row>
           </v-container>
         </v-col>
@@ -304,6 +305,7 @@ export default {
 </script>
 
 <style scoped>
+
 .input {
   border: 1px solid #5438a4;
   border-radius: 5px;
@@ -337,5 +339,16 @@ input:focus {
   background-color: #939097;
   height: 12px;
   border-radius: 5px;
+}
+.button-secondary {
+  color: #5438a4;
+  border: 1px solid #5438a4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button-primary {
+  background-color: #5438a4;
+  color: white;
+  cursor: pointer;
 }
 </style>

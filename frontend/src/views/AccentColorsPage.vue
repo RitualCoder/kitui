@@ -9,6 +9,7 @@
         </h1>
       </v-col>
     </v-row>
+    
     <v-row align="center" justify="center">
       <v-col cols="12">
         <h2>Choose your own color</h2>
@@ -127,13 +128,24 @@
 </template>
 
 <script>
+import { useColorStore } from '@/stores/colorStore';
 export default {
-  name: 'App',
+  
+  name: 'AccentColorsPage',
+  setup() {
+    const { selectedColor, setSelectedColor } = useColorStore();
+
+    // Function to handle color selection
+    function handleColorSelect(color) {
+      setSelectedColor(color);
+    }
+
+    return { selectedColor, handleColorSelect };
+  },
   data() {
     return {
       showColorPicker: false,
-      accentColor: localStorage.getItem('accentColor') || '#5438A4',
-      selectedColor: localStorage.getItem('accentColor') || 'null',
+      accentColor: this.selectedColor,
       brightColors: [
         { name: 'Ultramarine Blue', value: '#007BFF' },
         { name: 'Purple', value: '#8000FF' },
