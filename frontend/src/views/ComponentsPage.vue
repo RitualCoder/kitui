@@ -299,7 +299,7 @@
           <div
             :style="{
               padding: componentStore.card.padding + 'px',
-              backgroundColor: '#4E4856',
+              backgroundColor: $vuetify.theme.current.dark ? '#4E4856' : '#F2F5F9',
               borderRadius: componentStore.card.borderRadius + 'px'
             }"
           >
@@ -325,13 +325,21 @@
       "
     >
       <router-link to="/layout">
-        <v-btn variant="text" size="x-large" color="white">
+        <v-btn
+          variant="text"
+          size="x-large"
+          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        >
           <i class="fa-solid fa-arrow-left"></i>
           <span style="margin-left: 8px">Layout</span>
         </v-btn>
       </router-link>
 
-      <v-btn variant="text" size="x-large" color="white">
+      <v-btn
+        variant="text"
+        size="x-large"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+      >
         <span style="margin-right: 8px">Done</span>
         <i class="fa-solid fa-arrow-right"></i>
       </v-btn>
