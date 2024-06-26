@@ -38,12 +38,8 @@ h6 {
 
 .v-btn {
   font-family: 'Euclid-Medium', sans-serif;
-  text-transform: none !important;
-  border-radius: 12px !important;
-  letter-spacing: normal !important;
-  padding: 15px 40px !important;
+  padding: 10px 35px !important;
 }
-
 
 .v-text-field .v-field {
   border-radius: 12px;
@@ -69,3 +65,8 @@ p {
   font-family: 'Euclid-Regular', sans-serif;
 }
 
+@media (max-width: 900px) {
+  .v-btn {
+    padding: 8px 20px !important;
+  }
+}

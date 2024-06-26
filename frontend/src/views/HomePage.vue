@@ -76,7 +76,7 @@ export default {
   name: 'HomePage',
   components: {
     wordSlider,
-    ExpressIcon,
+    ExpressIcon
   },
   data() {
     return {
