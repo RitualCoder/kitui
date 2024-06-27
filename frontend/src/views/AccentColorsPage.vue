@@ -4,12 +4,12 @@
       <v-col cols="12">
         <h1>
           First of all select an
-          <span :style="{ color: accentColor }"> accent </span>
+          <span :style="{ color: colorStore.primaryColor }"> accent </span>
           color
         </h1>
       </v-col>
     </v-row>
-    
+
     <v-row align="center" justify="center">
       <v-col cols="12">
         <h2>Choose your own color</h2>
@@ -22,16 +22,16 @@
             @click="showColorPicker = !showColorPicker"
             elevation="0"
             v-click-outside="closeColorPicker"
+            :style="{ border: '2px solid ' + colorStore.primaryColor }"
           >
-            <div :style="{ backgroundColor: accentColor }" class="color-circle"></div>
-            {{ accentColor }}
+            <div :style="{ backgroundColor: colorStore.primaryColor }" class="color-circle"></div>
+            {{ colorStore.primaryColor }}
           </v-btn>
           <v-color-picker
             hide-inputs
             v-if="showColorPicker"
-            v-model="accentColor"
+            v-model="colorStore.primaryColor"
             flat
-            @change="saveColor"
             class="color-picker"
           ></v-color-picker>
         </div>
@@ -44,9 +44,14 @@
       <v-col cols="auto" v-for="color in brightColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
-          <v-btn size="x-large" color="default" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            size="x-large"
+            color="default"
+            @click="setPrimarycolorAndCloseColorPicker(color.value)"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -60,9 +65,14 @@
       <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            size="x-large"
+            @click="colorStore.primaryColor = color.value"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -76,9 +86,14 @@
       <v-col cols="auto" v-for="color in modernColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            size="x-large"
+            @click="colorStore.primaryColor = color.value"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -92,9 +107,14 @@
       <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
-          <v-btn color="default" size="x-large" @click="selectColor(color.value)" elevation="0">
+          <v-btn
+            color="default"
+            size="x-large"
+            @click="colorStore.primaryColor = color.value"
+            elevation="0"
+          >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
             {{ color.name }}
           </v-btn>
@@ -128,19 +148,19 @@
 </template>
 
 <script>
-import { useColorStore } from '@/stores/colorStore';
+import { mapStores } from 'pinia'
+import { useColorStore } from '@/stores/colorStore'
 export default {
-  
   name: 'AccentColorsPage',
   setup() {
-    const { selectedColor, setSelectedColor } = useColorStore();
+    const { selectedColor, setSelectedColor } = useColorStore()
 
     // Function to handle color selection
     function handleColorSelect(color) {
-      setSelectedColor(color);
+      setSelectedColor(color)
     }
 
-    return { selectedColor, handleColorSelect };
+    return { selectedColor, handleColorSelect }
   },
   data() {
     return {
@@ -176,17 +196,16 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapStores(useColorStore)
+  },
   methods: {
-    selectColor(color) {
-      this.accentColor = color
-      this.selectedColor = color
-      this.saveColor()
-    },
     closeColorPicker() {
       this.showColorPicker = false
     },
-    saveColor() {
-      localStorage.setItem('accentColor', this.accentColor)
+    setPrimarycolorAndCloseColorPicker(color) {
+      this.showColorPicker = false
+      this.colorStore.primaryColor = color
     }
   },
   mounted() {
