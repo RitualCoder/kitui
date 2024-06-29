@@ -424,17 +424,20 @@
     </div>
     <!-- footer -->
     <div style="width: 100%; display: flex; justify-content: space-between">
-      <router-link to="/accent-colors">
-        <v-btn
-          variant="text"
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        >
-          <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Accent color</span>
-        </v-btn>
-      </router-link>
+      <v-btn
+        variant="text"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        to="/colors"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Colors</span>
+      </v-btn>
 
-      <v-btn variant="text" :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }">
+      <v-btn
+        variant="text"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        to="/layout"
+      >
         <span style="margin-right: 8px">Layout</span>
         <i class="fa-solid fa-arrow-right"></i>
       </v-btn>
@@ -864,21 +867,21 @@
 
     <!-- footer -->
     <div style="width: 100%; display: flex; justify-content: space-between">
-      <router-link to="/accent-colors">
-        <v-btn
-          variant="text"
-          size="x-large"
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        >
-          <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Accent color</span>
-        </v-btn>
-      </router-link>
+      <v-btn
+        variant="text"
+        size="x-large"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        to="/colors"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Colors</span>
+      </v-btn>
 
       <v-btn
         variant="text"
         size="x-large"
         :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        to="/layout"
       >
         <span style="margin-right: 8px">Layout</span>
         <i class="fa-solid fa-arrow-right"></i>

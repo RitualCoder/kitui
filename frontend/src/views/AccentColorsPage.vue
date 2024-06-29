@@ -120,35 +120,33 @@
         </div>
       </v-col>
     </v-row>
-    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 50px;">
-      <router-link to="/">
-        <v-btn
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-          variant="text"
-          size="x-large"
-        >
-          <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Home</span>
-        </v-btn>
-      </router-link>
+    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 50px">
+      <v-btn
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        variant="text"
+        size="x-large"
+        to="/"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Home</span>
+      </v-btn>
 
-      <router-link to="/typography">
-        <v-btn
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-          variant="text"
-          size="x-large"
-        >
-          <span style="margin-right: 8px">Typography</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </v-btn>
-      </router-link>
+      <v-btn
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        variant="text"
+        size="x-large"
+        to="/colors"
+      >
+        <span style="margin-right: 8px">Colors</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </v-btn>
     </div>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: 'App',
+  name: 'AccentColorsPage',
   data() {
     return {
       showColorPicker: false,

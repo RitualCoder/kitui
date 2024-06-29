@@ -287,18 +287,22 @@
     </card-container>
     <!-- footer -->
     <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 20px">
-      <router-link to="/layout">
-        <v-btn
-          variant="text"
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        >
-          <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Layout</span>
-        </v-btn>
-      </router-link>
+      =
+      <v-btn
+        to="/layout"
+        variant="text"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Layout</span>
+      </v-btn>
 
-      <v-btn variant="text" :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }">
-        <span style="margin-right: 8px">Done</span>
+      <v-btn
+        to="/result"
+        variant="text"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+      >
+        <span style="margin-right: 8px">Result</span>
         <i class="fa-solid fa-arrow-right"></i>
       </v-btn>
     </div>
@@ -624,23 +628,23 @@
         margin-top: 40px;
       "
     >
-      <router-link to="/layout">
-        <v-btn
-          variant="text"
-          size="x-large"
-          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        >
-          <i class="fa-solid fa-arrow-left"></i>
-          <span style="margin-left: 8px">Layout</span>
-        </v-btn>
-      </router-link>
-
       <v-btn
+        to="/layout"
         variant="text"
         size="x-large"
         :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
       >
-        <span style="margin-right: 8px">Done</span>
+        <i class="fa-solid fa-arrow-left"></i>
+        <span style="margin-left: 8px">Layout</span>
+      </v-btn>
+
+      <v-btn
+        to="/result"
+        variant="text"
+        size="x-large"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+      >
+        <span style="margin-right: 8px">Result</span>
         <i class="fa-solid fa-arrow-right"></i>
       </v-btn>
     </div>

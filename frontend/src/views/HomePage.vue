@@ -19,9 +19,7 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <router-link to="/accent-colors">
-          <v-btn elevation="0" size="x-large">Get Started </v-btn>
-        </router-link>
+        <v-btn to="/accent-colors" elevation="0" size="x-large">Get Started </v-btn>
         <a href="https://github.com/RitualCoder/kitui" target="_blank">
           <v-btn
             size="x-large"
