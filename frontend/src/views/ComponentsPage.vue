@@ -1,7 +1,307 @@
 <template>
   <!-- Version mobile -->
   <div v-if="isMobile">
-    <h1>Version Mobile</h1>
+    <h2 style="text-align: center; margin-bottom: 40px">
+      Let's customize your <span style="color: #5438a4">components</span>
+    </h2>
+    <card-container style="width: 100%">
+      <h2 style="text-align: center; font-family: 'Euclid-regular'">Buttons</h2>
+      <div style="display: flex; flex-direction: column; width: 100%; gap: 25px">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 20px;
+          "
+        >
+          <button
+            class="button-primary"
+            :style="{
+              border: componentStore.button.border + 'px solid',
+              borderColor: colorStore.primaryColor,
+              borderRadius: componentStore.button.borderRadius + 'px',
+              padding:
+                componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
+              fontSize: componentStore.button.fontSize + 'px'
+            }"
+          >
+            Primary
+          </button>
+          <button
+            class="button-secondary"
+            :style="{
+              border: componentStore.button.border + 'px solid',
+              borderColor: colorStore.primaryColor,
+              borderRadius: componentStore.button.borderRadius + 'px',
+              padding:
+                componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
+              fontSize: componentStore.button.fontSize + 'px'
+            }"
+          >
+            Secondary
+          </button>
+          <button
+            class="button-disabled"
+            :style="{
+              border: componentStore.button.border + 'px solid',
+              borderColor: '#3f3a45',
+              borderRadius: componentStore.button.borderRadius + 'px',
+              padding:
+                componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
+              fontSize: componentStore.button.fontSize + 'px'
+            }"
+          >
+            Disabled
+          </button>
+        </div>
+
+        <div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-family: Euclid-Bold;
+              align-items: center;
+            "
+          >
+            <p>Border</p>
+            <h3 style="color: #aa9bd1">{{ componentStore.button.border }} px</h3>
+          </div>
+          <v-slider
+            v-model="componentStore.button.border"
+            step="1"
+            :color="colorStore.primaryColor"
+            :min="0"
+            :max="10"
+            hide-details
+          />
+        </div>
+        <div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-family: Euclid-Bold;
+              align-items: center;
+            "
+          >
+            <p>Border radius</p>
+            <h3 style="color: #aa9bd1">{{ componentStore.button.borderRadius }} px</h3>
+          </div>
+          <v-slider
+            v-model="componentStore.button.borderRadius"
+            step="1"
+            :color="colorStore.primaryColor"
+            :min="0"
+            :max="50"
+            hide-details
+          />
+        </div>
+        <div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-family: Euclid-Bold;
+              align-items: center;
+            "
+          >
+            <p>Padding</p>
+            <h3 style="color: #aa9bd1">{{ componentStore.button.padding }} px</h3>
+          </div>
+          <v-slider
+            v-model="componentStore.button.padding"
+            step="1"
+            :color="colorStore.primaryColor"
+            :min="0"
+            :max="20"
+            hide-details
+          />
+        </div>
+        <div>
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              font-family: Euclid-Bold;
+              align-items: center;
+            "
+          >
+            <p>Font size</p>
+            <h3 style="color: #aa9bd1">{{ componentStore.button.fontSize }} px</h3>
+          </div>
+          <v-slider
+            v-model="componentStore.button.fontSize"
+            step="1"
+            :color="colorStore.primaryColor"
+            :min="8"
+            :max="30"
+            hide-details
+          />
+        </div>
+      </div>
+    </card-container>
+    <card-container style="margin-top: 80px; width: 100%">
+      <h2 style="text-align: center; font-family: 'Euclid-regular'">Text inputs</h2>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 20px;
+        "
+      >
+        <input
+          type="text"
+          :class="['input']"
+          placeholder="Placeholder"
+          :style="{
+            borderRadius: componentStore.input.borderRadius + 'px',
+            padding: componentStore.input.padding + 'px'
+          }"
+        />
+        <input
+          type="text"
+          :class="['input', 'input-success']"
+          placeholder="Placeholder"
+          :style="{
+            borderRadius: componentStore.input.borderRadius + 'px',
+            padding: componentStore.input.padding + 'px'
+          }"
+        />
+        <input
+          type="text"
+          :class="['input', 'input-error']"
+          placeholder="Placeholder"
+          :style="{
+            borderRadius: componentStore.input.borderRadius + 'px',
+            padding: componentStore.input.padding + 'px'
+          }"
+        />
+      </div>
+      <div style="width: 100%">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            font-family: Euclid-Bold;
+            align-items: center;
+          "
+        >
+          <p>Border radius</p>
+          <h3 style="color: #aa9bd1">{{ componentStore.input.borderRadius }} px</h3>
+        </div>
+        <v-slider
+          v-model="componentStore.input.borderRadius"
+          step="1"
+          :color="colorStore.primaryColor"
+          :min="0"
+          :max="50"
+          hide-details
+        />
+      </div>
+      <div style="width: 100%">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            font-family: Euclid-Bold;
+            align-items: center;
+          "
+        >
+          <p>Padding</p>
+          <h3 style="color: #aa9bd1">{{ componentStore.input.padding }} px</h3>
+        </div>
+        <v-slider
+          v-model="componentStore.input.padding"
+          step="1"
+          :color="colorStore.primaryColor"
+          :min="0"
+          :max="10"
+          hide-details
+        />
+      </div>
+    </card-container>
+    <card-container style="margin-top: 80px; width: 100%">
+      <h2 style="text-align: center; font-family: 'Euclid-regular'">Cards</h2>
+      <div
+        :style="{
+          padding: componentStore.card.padding + 'px',
+          backgroundColor: $vuetify.theme.current.dark ? '#4E4856' : '#F2F5F9',
+          borderRadius: componentStore.card.borderRadius + 'px'
+        }"
+      >
+        <h2>Title</h2>
+        <p>Subtitle</p>
+        <div style="display: flex; flex-direction: column; gap: 7px; margin: 10px 0px">
+          <div style="width: 80px" class="subtitle"></div>
+          <div style="width: 100px" class="subtitle"></div>
+          <div style="width: 60px" class="subtitle"></div>
+        </div>
+      </div>
+      <div style="width: 100%">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            font-family: Euclid-Bold;
+            align-items: center;
+          "
+        >
+          <p>Border radius</p>
+          <h3 style="color: #aa9bd1">{{ componentStore.card.borderRadius }} px</h3>
+        </div>
+        <v-slider
+          v-model="componentStore.card.borderRadius"
+          step="1"
+          :color="colorStore.primaryColor"
+          :min="0"
+          :max="50"
+          hide-details
+        />
+      </div>
+      <div style="width: 100%">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            font-family: Euclid-Bold;
+            align-items: center;
+          "
+        >
+          <p>Padding</p>
+          <h3 style="color: #aa9bd1">{{ componentStore.card.padding }} px</h3>
+        </div>
+        <v-slider
+          v-model="componentStore.card.padding"
+          step="1"
+          :color="colorStore.primaryColor"
+          :min="0"
+          :max="50"
+          hide-details
+        />
+      </div>
+    </card-container>
+    <!-- footer -->
+    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 20px">
+      <router-link to="/layout">
+        <v-btn
+          variant="text"
+          :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          <span style="margin-left: 8px">Layout</span>
+        </v-btn>
+      </router-link>
+
+      <v-btn variant="text" :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }">
+        <span style="margin-right: 8px">Done</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </v-btn>
+    </div>
   </div>
 
   <div v-else style="display: flex; align-items: center; flex-direction: column">
