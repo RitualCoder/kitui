@@ -287,7 +287,6 @@
     </card-container>
     <!-- footer -->
     <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 20px">
-      =
       <v-btn
         to="/layout"
         variant="text"

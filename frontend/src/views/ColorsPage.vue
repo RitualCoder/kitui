@@ -40,13 +40,27 @@
 </template>
 
 <script>
+import { mapStores } from 'pinia'
+import { generateColorVariants } from '@/lib/functions'
+import { useColorStore } from '@/stores/colorStore'
+
 export default {
   name: 'ColorsPage',
   data() {
     return {}
   },
+  computed: {
+    ...mapStores(useColorStore)
+  },
   mounted() {
     window.scrollTo(0, 0)
+    const variants = generateColorVariants(this.colorStore.primaryColor)
+    this.colorStore.dark = variants.dark
+    this.colorStore.light = variants.light
+    this.colorStore.lightVariant1 = variants.lightVariant1
+    this.colorStore.lightVariant2 = variants.lightVariant2
+    this.colorStore.darkVariant1 = variants.darkVariant1
+    this.colorStore.darkVariant2 = variants.darkVariant2
   },
   methods: {}
 }
