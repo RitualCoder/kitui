@@ -3,11 +3,13 @@
     <v-app-bar
       elevation="0"
       :style="{
-        backdropFilter: 'blur(5px)',
         padding: '10px 30px',
-        backgroundColor: $vuetify.theme.current.dark
-          ? 'rgba(20, 17, 21, 0.1)'
-          : 'rgba(242, 245, 249, 0.1)'
+        backdropFilter: showBlur ? 'blur(5px)' : '',
+        backgroundColor: showBlur
+          ? $vuetify.theme.current.dark
+            ? 'rgba(20, 17, 21, 0.1)'
+            : 'rgba(242, 245, 249, 0.1)'
+          : 'transparent'
       }"
     >
       <template v-slot:prepend>
@@ -20,7 +22,7 @@
         />
       </template>
       <template v-slot:append>
-        <toggle-theme />
+        <toggle-theme v-if="showToggleTheme" />
       </template>
     </v-app-bar>
     <v-main class="main-content">
@@ -29,12 +31,37 @@
   </v-app>
 </template>
 
-<script setup>
+<script>
 import KituiIcon from '@/assets/icons/Kitui-Icon.vue'
 import toggleTheme from '@/components/buttons/toggleTheme.vue'
 import { useColorStore } from '@/stores/colorStore'
+import { useRoute } from 'vue-router'
 
-const colorStore = useColorStore()
+export default {
+  name: 'App',
+  components: {
+    KituiIcon,
+    toggleTheme
+  },
+  data() {
+    return {
+      // Obtenir la route actuelle
+      route: useRoute(),
+      colorStore: useColorStore(),
+      hideToggleOnRoutes: ['/colors'],
+      routesWithoutBlur: ['/colors', '/'],
+      routesWithoutToggleTheme: ['/colors']
+    }
+  },
+  computed: {
+    showBlur() {
+      return !this.routesWithoutBlur.includes(this.$route.fullPath)
+    },
+    showToggleTheme() {
+      return !this.routesWithoutToggleTheme.includes(this.$route.fullPath)
+    }
+  }
+}
 </script>
 
 <style>

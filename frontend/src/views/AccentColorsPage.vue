@@ -4,11 +4,12 @@
       <v-col cols="12">
         <h1>
           First of all select an
-          <span :style="{ color: accentColor }"> accent </span>
+          <span :style="{ color: colorStore.primaryColor }"> accent </span>
           color
         </h1>
       </v-col>
     </v-row>
+
     <v-row align="center" justify="center">
       <v-col cols="12">
         <h2>Choose your own color</h2>
@@ -18,21 +19,14 @@
           <v-btn
             color="default"
             size="x-large"
-            @click="showColorPicker = !showColorPicker"
+            @click="dialog = true"
             elevation="0"
             v-click-outside="closeColorPicker"
+            :style="{ border: '2px solid ' + colorStore.primaryColor }"
           >
-            <div :style="{ backgroundColor: accentColor }" class="color-circle"></div>
-            {{ accentColor }}
+            <div :style="{ backgroundColor: colorStore.primaryColor }" class="color-circle"></div>
+            {{ colorStore.primaryColor }}
           </v-btn>
-          <v-color-picker
-            hide-inputs
-            v-if="showColorPicker"
-            v-model="accentColor"
-            flat
-            @change="saveColor"
-            class="color-picker"
-          ></v-color-picker>
         </div>
       </v-col>
     </v-row>
@@ -43,11 +37,11 @@
       <v-col cols="auto" v-for="color in brightColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
-            @click="selectColor(color.value)"
+            @click="setPrimarycolorAndCloseColorPicker(color.value)"
             elevation="0"
             style="height: auto"
           >
@@ -64,12 +58,12 @@
       <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
             style="height: auto"
-            @click="selectColor(color.value)"
+            @click="setPrimarycolorAndCloseColorPicker(color.value)"
             elevation="0"
           >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
@@ -85,12 +79,12 @@
       <v-col cols="auto" v-for="color in modernColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
             style="height: auto"
-            @click="selectColor(color.value)"
+            @click="setPrimarycolorAndCloseColorPicker(color.value)"
             elevation="0"
           >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
@@ -106,12 +100,12 @@
       <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
         <div
           class="color-option"
-          :style="selectedColor === color.value ? { borderColor: color.value } : {}"
+          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
             style="height: auto"
-            @click="selectColor(color.value)"
+            @click="setPrimarycolorAndCloseColorPicker(color.value)"
             elevation="0"
           >
             <div :style="{ backgroundColor: color.value }" class="color-circle"></div>
@@ -120,38 +114,64 @@
         </div>
       </v-col>
     </v-row>
-    <div style="width: 100%; display: flex; justify-content: space-between; margin-top: 50px">
-      <v-btn
-        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        variant="text"
-        size="x-large"
-        to="/"
-      >
+
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 30px;
+        margin: 80px 0px 0px 0px;
+      "
+    >
+      <v-btn color="white" variant="text" size="x-large" to="/">
         <i class="fa-solid fa-arrow-left"></i>
         <span style="margin-left: 8px">Home</span>
       </v-btn>
 
-      <v-btn
-        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
-        variant="text"
-        size="x-large"
-        to="/colors"
-      >
+      <v-btn color="white" variant="text" size="x-large" to="/colors">
         <span style="margin-right: 8px">Colors</span>
         <i class="fa-solid fa-arrow-right"></i>
       </v-btn>
     </div>
   </v-container>
+
+  <v-dialog v-model="dialog" width="auto">
+    <v-card title="Choose a custom color" style="text-align: center">
+      <v-card-text style="display: flex; justify-content: center; margin: 10px 30px">
+        <v-color-picker
+          flat
+          show-swatches
+          swatches-max-height="150px"
+          v-model="colorStore.primaryColor"
+          :modes="['hex', 'rgba', 'hsla']"
+        />
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          style="margin: 0px 10px 10px 0px"
+          text="Confirmer"
+          @click="dialog = false"
+          :color="$vuetify.theme.current.dark ? 'white' : 'black'"
+        />
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script>
+import { mapStores } from 'pinia'
+import { useColorStore } from '@/stores/colorStore'
+import { VColorPicker } from 'vuetify/lib/components/index.mjs'
+
 export default {
   name: 'AccentColorsPage',
+  components: {
+    VColorPicker
+  },
   data() {
     return {
-      showColorPicker: false,
-      accentColor: localStorage.getItem('accentColor') || '#5438A4',
-      selectedColor: localStorage.getItem('accentColor') || 'null',
+      dialog: false,
       brightColors: [
         { name: 'Ultramarine Blue', value: '#007BFF' },
         { name: 'Purple', value: '#8000FF' },
@@ -182,17 +202,16 @@ export default {
       ]
     }
   },
+  computed: {
+    ...mapStores(useColorStore)
+  },
   methods: {
-    selectColor(color) {
-      this.accentColor = color
-      this.selectedColor = color
-      this.saveColor()
-    },
     closeColorPicker() {
       this.showColorPicker = false
     },
-    saveColor() {
-      localStorage.setItem('accentColor', this.accentColor)
+    setPrimarycolorAndCloseColorPicker(color) {
+      this.showColorPicker = false
+      this.colorStore.primaryColor = color
     }
   },
   mounted() {
