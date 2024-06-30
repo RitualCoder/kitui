@@ -8,9 +8,9 @@ export const useLayoutStore = defineStore('layout', {
       left: 48,
       right: 48
     },
-    justifyContent: 'start', // 'start', 'center', or 'end'
-    alignItems: 'start', // 'start', 'center', or 'end'
-    flexDirection: 'column', // 'row' or 'column'
+    justifyContent: 'start', 
+    alignItems: 'start', 
+    flexDirection: 'column', 
   }),
   actions: {},
   persist: true
