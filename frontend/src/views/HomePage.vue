@@ -19,11 +19,11 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <v-btn :color="colorStore.primaryColor" to="/accent-colors" elevation="0" size="x-large"
+        <v-btn :color="colorStore.primary" to="/accent-colors" elevation="0" size="x-large"
           >Get Started
         </v-btn>
         <a href="https://github.com/RitualCoder/kitui" target="_blank">
-          <v-btn size="x-large" variant="outlined" :color="colorStore.primaryColor">
+          <v-btn size="x-large" variant="outlined" :color="colorStore.primary">
             <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
           </v-btn>
         </a>
@@ -106,7 +106,7 @@ export default {
   },
   setup() {
     const colorStore = useColorStore()
-    const primaryColor = colorStore.primaryColor
+    const primaryColor = colorStore.primary
 
     return {
       primaryColor

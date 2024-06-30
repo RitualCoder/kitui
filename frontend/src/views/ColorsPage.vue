@@ -152,7 +152,7 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
-    const variants = generateColorVariants(this.colorStore.primaryColor)
+    const variants = generateColorVariants(this.colorStore.primary)
     this.colorStore.dark = variants.dark
     this.colorStore.light = variants.light
     this.colorStore.lightVariant1 = variants.lightVariant1

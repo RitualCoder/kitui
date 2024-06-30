@@ -15,13 +15,13 @@
         Let's customize your
         <span
           :style="{
-            color: colorStore.primaryColor,
+            color: colorStore.primary,
             fontFamily: 'Alex Brush, cursive',
             fontSize: '38px'
           }"
           >T</span
         >
-        <span :style="{ color: colorStore.primaryColor }">ypography</span>
+        <span :style="{ color: colorStore.primary }">ypography</span>
       </h2>
     </div>
 
@@ -62,7 +62,7 @@
                 <v-slider
                   v-model="typoStore.h1.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="typoStore.h2.fontSize"
                   hide-details
                   style="width: auto"
@@ -84,7 +84,7 @@
                 <v-slider
                   v-model="typoStore.h1.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -124,7 +124,7 @@
                 <v-slider
                   v-model="typoStore.h2.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="typoStore.h3.fontSize"
                   :max="typoStore.h1.fontSize"
                   hide-details
@@ -147,7 +147,7 @@
                 <v-slider
                   v-model="typoStore.h2.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -187,7 +187,7 @@
                 <v-slider
                   v-model="typoStore.h3.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="typoStore.h4.fontSize"
                   :max="typoStore.h2.fontSize"
                   hide-details
@@ -210,7 +210,7 @@
                 <v-slider
                   v-model="typoStore.h3.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -250,7 +250,7 @@
                 <v-slider
                   v-model="typoStore.h4.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="typoStore.h5.fontSize"
                   :max="typoStore.h3.fontSize"
                   hide-details
@@ -273,7 +273,7 @@
                 <v-slider
                   v-model="typoStore.h4.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -313,7 +313,7 @@
                 <v-slider
                   v-model="typoStore.h5.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="typoStore.h6.fontSize"
                   :max="typoStore.h4.fontSize"
                   hide-details
@@ -336,7 +336,7 @@
                 <v-slider
                   v-model="typoStore.h5.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -376,7 +376,7 @@
                 <v-slider
                   v-model="typoStore.h6.fontSize"
                   step="1"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :min="16"
                   :max="typoStore.h5.fontSize"
                   hide-details
@@ -398,7 +398,7 @@
                 <v-slider
                   v-model="typoStore.h6.fontWeight"
                   step="100"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                   :max="900"
                   :min="100"
                   hide-details
@@ -451,13 +451,13 @@
         Let's customize your
         <span
           :style="{
-            color: colorStore.primaryColor,
+            color: colorStore.primary,
             fontFamily: 'Alex Brush, cursive',
             fontSize: '54px'
           }"
           >T</span
         >
-        <span :style="{ color: colorStore.primaryColor }">ypography</span>
+        <span :style="{ color: colorStore.primary }">ypography</span>
       </h1>
     </div>
 
@@ -497,7 +497,7 @@
                   <v-slider
                     v-model="typoStore.h1.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="typoStore.h2.fontSize"
                     hide-details
                     style="width: 100%"
@@ -519,7 +519,7 @@
                   <v-slider
                     v-model="typoStore.h1.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
@@ -560,7 +560,7 @@
                   <v-slider
                     v-model="typoStore.h2.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="typoStore.h3.fontSize"
                     :max="typoStore.h1.fontSize"
                     hide-details
@@ -583,7 +583,7 @@
                   <v-slider
                     v-model="typoStore.h2.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
@@ -624,7 +624,7 @@
                   <v-slider
                     v-model="typoStore.h3.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="typoStore.h4.fontSize"
                     :max="typoStore.h2.fontSize"
                     hide-details
@@ -647,7 +647,7 @@
                   <v-slider
                     v-model="typoStore.h3.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
@@ -688,7 +688,7 @@
                   <v-slider
                     v-model="typoStore.h4.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="typoStore.h5.fontSize"
                     :max="typoStore.h3.fontSize"
                     hide-details
@@ -711,7 +711,7 @@
                   <v-slider
                     v-model="typoStore.h4.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
@@ -752,7 +752,7 @@
                   <v-slider
                     v-model="typoStore.h5.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="typoStore.h6.fontSize"
                     :max="typoStore.h4.fontSize"
                     hide-details
@@ -775,7 +775,7 @@
                   <v-slider
                     v-model="typoStore.h5.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
@@ -816,7 +816,7 @@
                   <v-slider
                     v-model="typoStore.h6.fontSize"
                     step="1"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :min="16"
                     :max="typoStore.h5.fontSize"
                     hide-details
@@ -839,7 +839,7 @@
                   <v-slider
                     v-model="typoStore.h6.fontWeight"
                     step="100"
-                    :color="colorStore.primaryColor"
+                    :color="colorStore.primary"
                     :max="900"
                     :min="100"
                     hide-details
