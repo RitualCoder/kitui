@@ -10,15 +10,15 @@
         margin-bottom: 20px;
         text-align: center;
       "
-    >
+     >
       <h1>
         Let's customize your
         <span :style="{ color: colorStore.primaryColor }">Layout</span>
-      </h1>
-    </div>
+       </h1>
+     </div>
 
-      <v-card-text class="preview-container" id="container">
-        <v-row>
+      <card-container class="preview-container" id="container">
+        <v-row style="width: 100%;">
           <v-col cols="12" md="4">
             <div v-for="(value, key) in layout.padding" :key="key" class="mb-6">
               <div class="d-flex justify-space-between align-center mb-2">
@@ -69,7 +69,7 @@
             <v-row class="mb-4">
               <v-col cols="4">
                 <v-checkbox
-                  v-model="layout.alignItems"
+                v-model="layout.alignItems"
                   label="Start"
                   value="start"
                   :color="colorStore.primaryColor"
@@ -114,53 +114,62 @@
             </v-row>
           </v-col>
           <v-col cols="12" md="8">
-            <v-card outlined class="preview-container" id="bordered-container" :style="previewStyle">
-              <div class="preview-item" v-for="n in 3" :key="n"></div>
+            <v-card outlined class="preview-container" id="bordered-container"  :style="previewStyle">
+              <div class="preview-item" :style="{backgroundColor: $vuetify.theme.current.dark ? '#4E4856' : '#ECEFF1'}" v-for="n in 3" :key="n"></div>
             </v-card>
           </v-col>
         </v-row>
-      </v-card-text>
+      </card-container>
     </v-card>
   </v-container>
 </template>
 
-<script setup>
-import { computed,watch } from 'vue'
+<script>
+import { computed ,watch} from 'vue'
 import { useLayoutStore } from '@/stores/layoutStore'
 import { useColorStore } from '@/stores/colorStore'
+import CardContainer from '@/components/cardContainer.vue'
+import { useTheme } from 'vuetify' 
 
-const layoutStore = useLayoutStore()
-const colorStore = useColorStore()
-const layout = layoutStore.$state
+export default {
+  components: {
+    CardContainer
+  },
+  setup() {
+    const layoutStore = useLayoutStore()
+    const colorStore = useColorStore()
+    const layout = layoutStore.$state
+    const theme = useTheme() 
 
-const previewStyle = computed(() => ({
-  padding: `${layout.padding.top}px ${layout.padding.right}px ${layout.padding.bottom}px ${layout.padding.left}px`,
-  display: 'flex',
-  justifyContent: layout.justifyContent,
-  alignItems: layout.alignItems,
-  flexDirection: layout.flexDirection,
-  height: '100%'
-}))
-// Watchers for logging changes
-watch(() => layout.padding, (newVal) => {
-  console.log('Padding changed:', newVal)
-}, { deep: true })
+    const previewStyle = computed(() => ({
+      padding: `${layout.padding.top}px ${layout.padding.right}px ${layout.padding.bottom}px ${layout.padding.left}px`,
+      display: 'flex',
+      justifyContent: layout.justifyContent,
+      alignItems: layout.alignItems,
+      flexDirection: layout.flexDirection,
+      height: '100%',
+      backgroundColor: theme.global.current.value.dark ? '#2f2b33' : '#ffffff'
+    }))
+    watch(
+      () => theme.global.current.value.dark,
+      (isDark) => {
+        document.documentElement.style.setProperty(
+          '--checkbox-color',
+          isDark ? 'white' : 'black'
+        )
+      },
+      { immediate: true }
+    )
 
-watch(() => layout.justifyContent, (newVal) => {
-  console.log('Justify Content changed:', newVal)
-})
 
-watch(() => layout.alignItems, (newVal) => {
-  console.log('Align Items changed:', newVal)
-})
-
-watch(() => layout.flexDirection, (newVal) => {
-  console.log('Flex Direction changed:', newVal)
-})
-
-watch(() => colorStore.primaryColor, (newVal) => {
-  console.log('Primary Color changed:', newVal)
-})
+    return {
+      layoutStore,
+      colorStore,
+      layout,
+      previewStyle
+    }
+  }
+}
 </script>
 
 <style scoped>
@@ -183,7 +192,7 @@ watch(() => colorStore.primaryColor, (newVal) => {
   margin-right: 4px;
 }
 .v-checkbox ::v-deep .v-label {
-  font-size: 10px;
+  font-size: 16px;
 }
 .text-h6 {
   font-size: 18px !important;
@@ -196,26 +205,22 @@ watch(() => colorStore.primaryColor, (newVal) => {
   }
 }
 .v-checkbox ::v-deep .v-input--selection-controls__input .v-icon {
-  color: white !important;
+  color: var(--checkbox-color) !important;
 }
 
 .v-checkbox ::v-deep .v-input--selection-controls__ripple:before {
-  background-color: white !important;
-}
-
-.v-checkbox ::v-deep .v-input--selection-controls__input:hover .v-input--selection-controls__ripple:before {
-  transform: scale(1) !important;
+  background-color: var(--checkbox-color) !important;
 }
 
 .v-checkbox ::v-deep .mdi-checkbox-blank-outline,
 .v-checkbox ::v-deep .mdi-checkbox-marked {
   border-radius: 0 !important;
   background-color: transparent !important;
-  border: 2px solid white !important;
+  border: 2px solid var(--checkbox-color) !important;
   border-radius: 10px !important;
 }
 
 .v-checkbox ::v-deep .mdi-checkbox-marked {
-  background-color: white !important;
+  background-color: var(--checkbox-color) !important;
 }
 </style>
