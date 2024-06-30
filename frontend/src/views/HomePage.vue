@@ -19,15 +19,11 @@
         </div>
       </div>
       <div style="display: flex; gap: 30px; justify-content: center; margin-top: 35px">
-        <router-link to="/accent-colors">
-          <v-btn elevation="0" size="x-large">Get Started </v-btn>
-        </router-link>
+        <v-btn :color="colorStore.primaryColor" to="/accent-colors" elevation="0" size="x-large"
+          >Get Started
+        </v-btn>
         <a href="https://github.com/RitualCoder/kitui" target="_blank">
-          <v-btn
-            size="x-large"
-            variant="outlined"
-            :color="$vuetify.theme.current.dark ? 'white' : '#5438A4'"
-          >
+          <v-btn size="x-large" variant="outlined" :color="colorStore.primaryColor">
             <i class="fa-brands fa-github"></i> <span style="margin-left: 8px">Github</span>
           </v-btn>
         </a>
@@ -70,6 +66,8 @@ import viteIcon from '@/assets/icons/vite-icon.svg'
 
 import wordSlider from '@/components/wordSlider.vue'
 
+import { mapStores } from 'pinia'
+
 import { useColorStore } from '@/stores/colorStore'
 
 export default {
@@ -96,6 +94,9 @@ export default {
     this.onResize()
 
     window.addEventListener('resize', this.onResize, { passive: true })
+  },
+  computed: {
+    ...mapStores(useColorStore)
   },
 
   methods: {

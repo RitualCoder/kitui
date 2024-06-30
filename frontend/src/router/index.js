@@ -3,6 +3,7 @@ import HomePage from '../views/HomePage.vue'
 import TypographyPage from '../views/TypographyPage.vue'
 import AccentColorsPage from '../views/AccentColorsPage.vue'
 import ComponentsPage from '@/views/ComponentsPage.vue'
+import ColorsPage from '@/views/ColorsPage.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,18 +14,23 @@ const router = createRouter({
       component: HomePage
     },
     {
-      path: '/typography',
-      name: 'Typography',
-      component: TypographyPage
-    },
-    {
       path: '/accent-colors',
       name: 'AccentColors',
       component: AccentColorsPage
     },
     {
+      path: '/colors',
+      name: 'Colors',
+      component: ColorsPage
+    },
+    {
+      path: '/typography',
+      name: 'Typography',
+      component: TypographyPage
+    },
+    {
       path: '/components',
-      name: 'components',
+      name: 'Components',
       component: ComponentsPage
     }
   ]

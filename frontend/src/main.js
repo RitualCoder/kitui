@@ -6,6 +6,7 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { theme } from './lib/vuetify-theme'
+import '@mdi/font/css/materialdesignicons.css'
 
 // Pinia
 import { createPinia } from 'pinia'
@@ -20,6 +21,9 @@ pinia.use(piniaPluginPersistedstate)
 
 const vuetify = createVuetify({
   components,
+  icons: {
+    defaultSet: 'mdi'
+  },
   directives,
   theme: {
     options: {

@@ -22,7 +22,7 @@ export const theme = {
   },
   defaults: {
     VBtn: {
-      color: '#5438A4',
+      color: '#FFFFFF',
       rounded: true,
       style: [{ textTransform: 'none' }, { borderRadius: '12px' }, { letterSpacing: 'normal' }]
     }
