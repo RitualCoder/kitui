@@ -16,7 +16,7 @@
         <KituiIcon
           :color1="$vuetify.theme.current.dark ? 'white' : 'black'"
           size="40"
-          :color2="colorStore.primaryColor"
+          :color2="colorStore.primary"
           @click="() => $router.push({ name: 'Home' })"
           style="cursor: pointer"
         />
