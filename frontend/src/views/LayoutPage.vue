@@ -19,7 +19,7 @@
 
       <card-container class="preview-container" id="container">
         <v-row style="width: 100%;">
-          <v-col cols="12" md="4">
+          <v-col cols="12" md="4" class="order-2 order-md-1">
             <div v-for="(value, key) in layout.padding" :key="key" class="mb-6">
               <div class="d-flex justify-space-between align-center mb-2">
                 <span class="text-body-1"
@@ -113,7 +113,7 @@
               </v-col>
             </v-row>
           </v-col>
-          <v-col cols="12" md="8">
+          <v-col cols="12" md="8" class="order-1 order-md-2">
             <v-card outlined class="preview-container" id="bordered-container"  :style="previewStyle">
               <div class="preview-item" :style="{backgroundColor: $vuetify.theme.current.dark ? '#4E4856' : '#ECEFF1'}" v-for="n in 3" :key="n"></div>
             </v-card>
