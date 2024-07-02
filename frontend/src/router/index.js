@@ -4,6 +4,7 @@ import TypographyPage from '../views/TypographyPage.vue'
 import AccentColorsPage from '../views/AccentColorsPage.vue'
 import ComponentsPage from '@/views/ComponentsPage.vue'
 import ColorsPage from '@/views/ColorsPage.vue'
+import LayoutPage from '@/views/LayoutPage.vue'
 import ResultPage from '@/views/ResultPage.vue'
 
 const router = createRouter({
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/components',
       name: 'Components',
       component: ComponentsPage
+    },
+    {
+      path: '/layout',
+      name: 'Layout',
+      component: LayoutPage
     },
     {
       path: '/results',
