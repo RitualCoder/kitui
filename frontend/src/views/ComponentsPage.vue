@@ -166,8 +166,10 @@
           :class="['input']"
           placeholder="Placeholder"
           :style="{
+            color: colorStore.primary,
             borderRadius: componentStore.input.borderRadius + 'px',
-            padding: componentStore.input.padding + 'px'
+            padding: componentStore.input.padding + 'px',
+            borderColor: colorStore.primary
           }"
         />
         <input
@@ -542,8 +544,10 @@
             :class="['input']"
             placeholder="Placeholder"
             :style="{
+              color: colorStore.primary,
               borderRadius: componentStore.input.borderRadius + 'px',
-              padding: componentStore.input.padding + 'px'
+              padding: componentStore.input.padding + 'px',
+              borderColor: colorStore.primary
             }"
           />
           <input
