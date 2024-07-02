@@ -6,7 +6,7 @@
         <v-container>
           <v-row justify="center" class="mb-6">
             <v-col cols="12" class="d-flex justify-center mb-4">
-              <button
+              <v-btn
                 :style="{
                   border: componentStore.button.border + 'px solid',
                   backgroundColor: colorStore.primary,
@@ -25,10 +25,13 @@
               >
                 <i class="fa-solid fa-download"></i>
                 <span style="margin-left: 8px">Generate CSS</span>
-              </button>
+              </v-btn>
             </v-col>
             <v-col cols="12" class="d-flex justify-center">
-              <button
+              <v-btn
+                size="x-large"
+                variant="outlined"
+                :color="colorStore.primary"
                 :style="{
                   border: componentStore.button.border + 'px solid',
                   borderColor: colorStore.primary,
@@ -42,7 +45,7 @@
                 }"
               >
                 <i class="fa-solid fa-terminal"></i> How to use it
-              </button>
+              </v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -312,7 +315,6 @@ import { useComponentStore } from '../stores/componentStore'
 import { useLayoutStore } from '../stores/layoutStore'
 import cardContainer from '../components/cardContainer.vue'
 import { generateJsonRequest } from '@/lib/functions'
-import { useLayoutStore } from '@/stores/layoutStore'
 
 export default {
   name: 'ComponentsPage',
@@ -346,7 +348,12 @@ export default {
       this.isMobile = window.innerWidth < 900
     },
     async handleSubmit() {
-      const data = generateJsonRequest(this.typoStore, this.colorStore, this.componentStore, this.layoutStore)
+      const data = generateJsonRequest(
+        this.typoStore,
+        this.colorStore,
+        this.componentStore,
+        this.layoutStore
+      )
 
       const response = await fetch('http://localhost:3000/api', {
         method: 'POST',
