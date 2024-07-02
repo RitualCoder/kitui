@@ -12,7 +12,7 @@
       >
         <h1>
           Let's customize your
-          <span :style="{ color: colorStore.primaryColor }">Layout</span>
+          <span :style="{ color: colorStore.primary }">Layout</span>
         </h1>
       </div>
 
@@ -22,16 +22,16 @@
           <v-col cols="12" md="4" class="order-2 order-md-1">
             <div v-for="(value, key) in layoutStore.padding" :key="key" class="mb-6">
               <div class="d-flex justify-space-between align-center mb-2">
-                <span class="text-body-1"
-                  >Padding {{ key.charAt(0).toUpperCase() + key.slice(1) }}</span
-                >
-                <span class="text-h6" style="color: #aa9bd1"
-                  >{{ layoutStore.padding[key] }} px</span
-                >
+                <p style="font-family: Euclid-Bold">
+                  Padding {{ key.charAt(0).toUpperCase() + key.slice(1) }}
+                </p>
+                <p :style="{ color: colorStore.lightVariant1, fontFamily: 'Euclid-Bold' }">
+                  {{ layoutStore.padding[key] }} px
+                </p>
               </div>
               <v-slider
                 v-model="layoutStore.padding[key]"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="0"
                 :max="100"
@@ -46,7 +46,7 @@
                   v-model="layoutStore.justifyContent"
                   label="Start"
                   value="start"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 ></v-checkbox>
               </v-col>
               <v-col cols="4">
@@ -54,7 +54,7 @@
                   v-model="layoutStore.justifyContent"
                   label="Center"
                   value="center"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 ></v-checkbox>
               </v-col>
               <v-col cols="4">
@@ -62,7 +62,7 @@
                   v-model="layoutStore.justifyContent"
                   label="End"
                   value="end"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 ></v-checkbox>
               </v-col>
             </v-row>
@@ -74,7 +74,7 @@
                   v-model="layoutStore.alignItems"
                   label="Start"
                   value="start"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 />
               </v-col>
               <v-col cols="4">
@@ -82,7 +82,7 @@
                   v-model="layoutStore.alignItems"
                   label="Center"
                   value="center"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 />
               </v-col>
               <v-col cols="4">
@@ -90,7 +90,7 @@
                   v-model="layoutStore.alignItems"
                   label="End"
                   value="end"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 />
               </v-col>
             </v-row>
@@ -102,7 +102,7 @@
                   v-model="layoutStore.flexDirection"
                   label="Row"
                   value="row"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 />
               </v-col>
               <v-col cols="6">
@@ -110,7 +110,7 @@
                   v-model="layoutStore.flexDirection"
                   label="Column"
                   value="column"
-                  :color="colorStore.primaryColor"
+                  :color="colorStore.primary"
                 />
               </v-col>
             </v-row>
@@ -162,11 +162,11 @@
                 "
               >
                 <p>Columns</p>
-                <h3 style="color: #aa9bd1">{{ layoutStore.grid.columns }}</h3>
+                <h3 :style="{ color: colorStore.lightVariant1 }">{{ layoutStore.grid.columns }}</h3>
               </div>
               <v-slider
                 v-model="layoutStore.grid.columns"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="1"
                 :max="12"
@@ -184,11 +184,13 @@
                 "
               >
                 <p>Gutter</p>
-                <h3 style="color: #aa9bd1">{{ layoutStore.grid.gutter }}px</h3>
+                <h3 :style="{ color: colorStore.lightVariant1 }">
+                  {{ layoutStore.grid.gutter }}px
+                </h3>
               </div>
               <v-slider
                 v-model="layoutStore.grid.gutter"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="0"
                 :max="32"
@@ -254,11 +256,13 @@
                 "
               >
                 <p>Small</p>
-                <h3 style="color: #aa9bd1">{{ layoutStore.breakpoints.sm }}px</h3>
+                <h3 :style="{ color: colorStore.lightVariant1 }">
+                  {{ layoutStore.breakpoints.sm }}px
+                </h3>
               </div>
               <v-slider
                 v-model="layoutStore.breakpoints.sm"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="350"
                 :max="layoutStore.breakpoints.md - 100"
@@ -292,11 +296,13 @@
                 "
               >
                 <p>Medium</p>
-                <h3 style="color: #aa9bd1">{{ layoutStore.breakpoints.md }}px</h3>
+                <h3 :style="{ color: colorStore.lightVariant1 }">
+                  {{ layoutStore.breakpoints.md }}px
+                </h3>
               </div>
               <v-slider
                 v-model="layoutStore.breakpoints.md"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="layoutStore.breakpoints.sm + 100"
                 :max="layoutStore.breakpoints.lg - 100"
@@ -330,11 +336,13 @@
                 "
               >
                 <p>Large</p>
-                <h3 style="color: #aa9bd1">{{ layoutStore.breakpoints.lg }}px</h3>
+                <h3 :style="{ color: colorStore.lightVariant1 }">
+                  {{ layoutStore.breakpoints.lg }}px
+                </h3>
               </div>
               <v-slider
                 v-model="layoutStore.breakpoints.lg"
-                :color="colorStore.primaryColor"
+                :color="colorStore.primary"
                 step="1"
                 :min="layoutStore.breakpoints.md + 100"
                 :max="1920"
@@ -363,7 +371,7 @@
       <v-btn
         variant="text"
         :size="!$vuetify.display.smAndDown ? 'x-large' : 'large'"
-        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
+        :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : 'black' }"
         to="/components"
       >
         <span style="margin-right: 8px">Components</span>
@@ -405,21 +413,5 @@ export default {
   height: 8rem;
   margin: 8px;
   border-radius: 4px;
-}
-.v-checkbox ::v-deep .v-input--selection-controls__input {
-  margin-right: 4px;
-}
-.v-checkbox ::v-deep .v-label {
-  font-size: 16px;
-}
-.text-h6 {
-  font-size: 18px !important;
-  font-weight: bold;
-}
-#container {
-  padding: 4rem;
-  @media screen and (max-width: 768px) {
-    padding: 1rem;
-  }
 }
 </style>

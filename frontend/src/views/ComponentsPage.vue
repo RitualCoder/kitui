@@ -2,7 +2,7 @@
   <!-- Version mobile -->
   <div v-if="isMobile">
     <h2 style="text-align: center; margin-bottom: 40px">
-      Let's customize your <span style="color: #5438a4">components</span>
+      Let's customize your <span :style="{ color: colorStore.primary }">components</span>
     </h2>
     <card-container style="width: 100%">
       <h2 style="text-align: center; font-family: 'Euclid-regular'">Buttons</h2>
@@ -17,7 +17,6 @@
           "
         >
           <button
-            class="button-primary"
             :style="{
               border: componentStore.button.border + 'px solid',
               borderColor: colorStore.primary,
@@ -30,14 +29,14 @@
             Primary
           </button>
           <button
-            class="button-secondary"
             :style="{
               border: componentStore.button.border + 'px solid',
               borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
-              fontSize: componentStore.button.fontSize + 'px'
+              fontSize: componentStore.button.fontSize + 'px',
+              color: colorStore.primary
             }"
           >
             Secondary
@@ -67,7 +66,9 @@
             "
           >
             <p>Border</p>
-            <h3 style="color: #aa9bd1">{{ componentStore.button.border }} px</h3>
+            <h3 :style="{ color: colorStore.lightVariant1 }">
+              {{ componentStore.button.border }} px
+            </h3>
           </div>
           <v-slider
             v-model="componentStore.button.border"
@@ -88,7 +89,9 @@
             "
           >
             <p>Border radius</p>
-            <h3 style="color: #aa9bd1">{{ componentStore.button.borderRadius }} px</h3>
+            <h3 :style="{ color: colorStore.lightVariant1 }">
+              {{ componentStore.button.borderRadius }} px
+            </h3>
           </div>
           <v-slider
             v-model="componentStore.button.borderRadius"
@@ -109,7 +112,9 @@
             "
           >
             <p>Padding</p>
-            <h3 style="color: #aa9bd1">{{ componentStore.button.padding }} px</h3>
+            <h3 :style="{ color: colorStore.lightVariant1 }">
+              {{ componentStore.button.padding }} px
+            </h3>
           </div>
           <v-slider
             v-model="componentStore.button.padding"
@@ -130,7 +135,9 @@
             "
           >
             <p>Font size</p>
-            <h3 style="color: #aa9bd1">{{ componentStore.button.fontSize }} px</h3>
+            <h3 :style="{ color: colorStore.lightVariant1 }">
+              {{ componentStore.button.fontSize }} px
+            </h3>
           </div>
           <v-slider
             v-model="componentStore.button.fontSize"
@@ -192,7 +199,9 @@
           "
         >
           <p>Border radius</p>
-          <h3 style="color: #aa9bd1">{{ componentStore.input.borderRadius }} px</h3>
+          <h3 :style="{ color: colorStore.lightVariant1 }">
+            {{ componentStore.input.borderRadius }} px
+          </h3>
         </div>
         <v-slider
           v-model="componentStore.input.borderRadius"
@@ -213,7 +222,9 @@
           "
         >
           <p>Padding</p>
-          <h3 style="color: #aa9bd1">{{ componentStore.input.padding }} px</h3>
+          <h3 :style="{ color: colorStore.lightVariant1 }">
+            {{ componentStore.input.padding }} px
+          </h3>
         </div>
         <v-slider
           v-model="componentStore.input.padding"
@@ -252,7 +263,9 @@
           "
         >
           <p>Border radius</p>
-          <h3 style="color: #aa9bd1">{{ componentStore.card.borderRadius }} px</h3>
+          <h3 :style="{ color: colorStore.lightVariant1 }">
+            {{ componentStore.card.borderRadius }} px
+          </h3>
         </div>
         <v-slider
           v-model="componentStore.card.borderRadius"
@@ -273,7 +286,7 @@
           "
         >
           <p>Padding</p>
-          <h3 style="color: #aa9bd1">{{ componentStore.card.padding }} px</h3>
+          <h3 :style="{ color: colorStore.lightVariant1 }">{{ componentStore.card.padding }} px</h3>
         </div>
         <v-slider
           v-model="componentStore.card.padding"
@@ -297,7 +310,7 @@
       </v-btn>
 
       <v-btn
-        to="/result"
+        to="/results"
         variant="text"
         :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
       >
@@ -307,8 +320,9 @@
     </div>
   </div>
 
+  <!-- DESKTOP -->
   <div v-else style="display: flex; align-items: center; flex-direction: column">
-    <h2>Let's customize your <span style="color: #5438a4">components</span></h2>
+    <h2>Let's customize your <span :style="{ color: colorStore.primary }">components</span></h2>
     <card-container style="margin-top: 80px; width: 100%">
       <h2 style="text-align: center; font-family: 'Euclid-regular'">Buttons</h2>
       <v-row style="width: 100%">
@@ -323,7 +337,9 @@
               "
             >
               <p>Border</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.button.border }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.button.border }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.button.border"
@@ -344,7 +360,9 @@
               "
             >
               <p>Border radius</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.button.borderRadius }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.button.borderRadius }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.button.borderRadius"
@@ -365,7 +383,9 @@
               "
             >
               <p>Padding</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.button.padding }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.button.padding }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.button.padding"
@@ -386,7 +406,9 @@
               "
             >
               <p>Font size</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.button.fontSize }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.button.fontSize }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.button.fontSize"
@@ -410,27 +432,27 @@
           "
         >
           <button
-            class="button-primary"
             :style="{
               border: componentStore.button.border + 'px solid',
               borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
-              fontSize: componentStore.button.fontSize + 'px'
+              fontSize: componentStore.button.fontSize + 'px',
+              backgroundColor: colorStore.primary
             }"
           >
             Primary
           </button>
           <button
-            class="button-secondary"
             :style="{
               border: componentStore.button.border + 'px solid',
               borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
-              fontSize: componentStore.button.fontSize + 'px'
+              fontSize: componentStore.button.fontSize + 'px',
+              color: colorStore.primary
             }"
           >
             Secondary
@@ -443,7 +465,8 @@
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
-              fontSize: componentStore.button.fontSize + 'px'
+              fontSize: componentStore.button.fontSize + 'px',
+              c
             }"
           >
             Disabled
@@ -465,7 +488,9 @@
               "
             >
               <p>Border radius</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.input.borderRadius }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.input.borderRadius }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.input.borderRadius"
@@ -486,7 +511,9 @@
               "
             >
               <p>Padding</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.input.padding }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.input.padding }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.input.padding"
@@ -554,7 +581,9 @@
               "
             >
               <p>Border radius</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.card.borderRadius }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.card.borderRadius }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.card.borderRadius"
@@ -575,7 +604,9 @@
               "
             >
               <p>Padding</p>
-              <h3 style="color: #aa9bd1">{{ componentStore.card.padding }} px</h3>
+              <h3 :style="{ color: colorStore.lightVariant1 }">
+                {{ componentStore.card.padding }} px
+              </h3>
             </div>
             <v-slider
               v-model="componentStore.card.padding"
@@ -638,7 +669,7 @@
       </v-btn>
 
       <v-btn
-        to="/result"
+        to="/results"
         variant="text"
         size="x-large"
         :style="{ color: $vuetify.theme.current.dark ? '#ffffff' : '#5438A4' }"
@@ -693,21 +724,6 @@ export default {
 </script>
 
 <style scoped>
-.button-primary {
-  background-color: #5438a4;
-  color: white;
-  cursor: pointer;
-}
-
-.button-secondary {
-  margin: 0 auto;
-  color: #5438a4;
-  border: 1px solid #5438a4;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .button-disabled {
   background-color: #3f3a45;
   color: #afabb3;

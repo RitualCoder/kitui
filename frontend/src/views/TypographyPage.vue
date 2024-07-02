@@ -492,7 +492,9 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h1.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">
+                      {{ typoStore.h1.fontSize }} px
+                    </h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h1.fontSize"
@@ -514,7 +516,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h1.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h1.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h1.fontWeight"
@@ -555,7 +557,7 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h2.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h2.fontSize }} px</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h2.fontSize"
@@ -578,7 +580,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h2.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h2.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h2.fontWeight"
@@ -619,7 +621,7 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h3.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h3.fontSize }} px</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h3.fontSize"
@@ -642,7 +644,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h3.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h3.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h3.fontWeight"
@@ -683,7 +685,7 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h4.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h4.fontSize }} px</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h4.fontSize"
@@ -706,7 +708,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h4.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h4.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h4.fontWeight"
@@ -747,7 +749,7 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h5.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h5.fontSize }} px</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h5.fontSize"
@@ -770,7 +772,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h5.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h5.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h5.fontWeight"
@@ -811,7 +813,7 @@
                     "
                   >
                     <p>Font size</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h6.fontSize }} px</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h6.fontSize }} px</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h6.fontSize"
@@ -834,7 +836,7 @@
                     "
                   >
                     <p>Font weight</p>
-                    <h3 style="color: #aa9bd1">{{ typoStore.h6.fontWeight }}</h3>
+                    <h3 :style="{ color: colorStore.lightVariant1 }">{{ typoStore.h6.fontWeight }}</h3>
                   </div>
                   <v-slider
                     v-model="typoStore.h6.fontWeight"
