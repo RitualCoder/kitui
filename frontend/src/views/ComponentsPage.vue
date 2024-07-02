@@ -20,7 +20,7 @@
             class="button-primary"
             :style="{
               border: componentStore.button.border + 'px solid',
-              borderColor: colorStore.primaryColor,
+              borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
@@ -33,7 +33,7 @@
             class="button-secondary"
             :style="{
               border: componentStore.button.border + 'px solid',
-              borderColor: colorStore.primaryColor,
+              borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
@@ -72,7 +72,7 @@
           <v-slider
             v-model="componentStore.button.border"
             step="1"
-            :color="colorStore.primaryColor"
+            :color="colorStore.primary"
             :min="0"
             :max="10"
             hide-details
@@ -93,7 +93,7 @@
           <v-slider
             v-model="componentStore.button.borderRadius"
             step="1"
-            :color="colorStore.primaryColor"
+            :color="colorStore.primary"
             :min="0"
             :max="50"
             hide-details
@@ -114,7 +114,7 @@
           <v-slider
             v-model="componentStore.button.padding"
             step="1"
-            :color="colorStore.primaryColor"
+            :color="colorStore.primary"
             :min="0"
             :max="20"
             hide-details
@@ -135,7 +135,7 @@
           <v-slider
             v-model="componentStore.button.fontSize"
             step="1"
-            :color="colorStore.primaryColor"
+            :color="colorStore.primary"
             :min="8"
             :max="30"
             hide-details
@@ -197,7 +197,7 @@
         <v-slider
           v-model="componentStore.input.borderRadius"
           step="1"
-          :color="colorStore.primaryColor"
+          :color="colorStore.primary"
           :min="0"
           :max="50"
           hide-details
@@ -218,7 +218,7 @@
         <v-slider
           v-model="componentStore.input.padding"
           step="1"
-          :color="colorStore.primaryColor"
+          :color="colorStore.primary"
           :min="0"
           :max="10"
           hide-details
@@ -257,7 +257,7 @@
         <v-slider
           v-model="componentStore.card.borderRadius"
           step="1"
-          :color="colorStore.primaryColor"
+          :color="colorStore.primary"
           :min="0"
           :max="50"
           hide-details
@@ -278,7 +278,7 @@
         <v-slider
           v-model="componentStore.card.padding"
           step="1"
-          :color="colorStore.primaryColor"
+          :color="colorStore.primary"
           :min="0"
           :max="50"
           hide-details
@@ -328,7 +328,7 @@
             <v-slider
               v-model="componentStore.button.border"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="10"
               hide-details
@@ -349,7 +349,7 @@
             <v-slider
               v-model="componentStore.button.borderRadius"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="50"
               hide-details
@@ -370,7 +370,7 @@
             <v-slider
               v-model="componentStore.button.padding"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="20"
               hide-details
@@ -391,7 +391,7 @@
             <v-slider
               v-model="componentStore.button.fontSize"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="8"
               :max="30"
               hide-details
@@ -413,7 +413,7 @@
             class="button-primary"
             :style="{
               border: componentStore.button.border + 'px solid',
-              borderColor: colorStore.primaryColor,
+              borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
@@ -426,7 +426,7 @@
             class="button-secondary"
             :style="{
               border: componentStore.button.border + 'px solid',
-              borderColor: colorStore.primaryColor,
+              borderColor: colorStore.primary,
               borderRadius: componentStore.button.borderRadius + 'px',
               padding:
                 componentStore.button.padding + 'px ' + componentStore.button.padding * 3 + 'px',
@@ -470,7 +470,7 @@
             <v-slider
               v-model="componentStore.input.borderRadius"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="50"
               hide-details
@@ -491,7 +491,7 @@
             <v-slider
               v-model="componentStore.input.padding"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="10"
               hide-details
@@ -559,7 +559,7 @@
             <v-slider
               v-model="componentStore.card.borderRadius"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="50"
               hide-details
@@ -580,7 +580,7 @@
             <v-slider
               v-model="componentStore.card.padding"
               step="1"
-              :color="colorStore.primaryColor"
+              :color="colorStore.primary"
               :min="0"
               :max="50"
               hide-details

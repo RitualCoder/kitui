@@ -4,7 +4,7 @@
       <v-col cols="12">
         <h1>
           First of all select an
-          <span :style="{ color: colorStore.primaryColor }"> accent </span>
+          <span :style="{ color: colorStore.primary }"> accent </span>
           color
         </h1>
       </v-col>
@@ -22,10 +22,10 @@
             @click="dialog = true"
             elevation="0"
             v-click-outside="closeColorPicker"
-            :style="{ border: '2px solid ' + colorStore.primaryColor }"
+            :style="{ border: '2px solid ' + colorStore.primary }"
           >
-            <div :style="{ backgroundColor: colorStore.primaryColor }" class="color-circle"></div>
-            {{ colorStore.primaryColor }}
+            <div :style="{ backgroundColor: colorStore.primary }" class="color-circle"></div>
+            {{ colorStore.primary }}
           </v-btn>
         </div>
       </v-col>
@@ -37,7 +37,7 @@
       <v-col cols="auto" v-for="color in brightColors" :key="color.name">
         <div
           class="color-option"
-          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
+          :style="colorStore.primary === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
@@ -58,7 +58,7 @@
       <v-col cols="auto" v-for="color in neutralColors" :key="color.name">
         <div
           class="color-option"
-          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
+          :style="colorStore.primary === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
@@ -79,7 +79,7 @@
       <v-col cols="auto" v-for="color in modernColors" :key="color.name">
         <div
           class="color-option"
-          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
+          :style="colorStore.primary === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
@@ -100,7 +100,7 @@
       <v-col cols="auto" v-for="color in pastelColors" :key="color.name">
         <div
           class="color-option"
-          :style="colorStore.primaryColor === color.value && { borderColor: color.value }"
+          :style="colorStore.primary === color.value && { borderColor: color.value }"
         >
           <v-btn
             color="default"
@@ -143,7 +143,7 @@
           flat
           show-swatches
           swatches-max-height="150px"
-          v-model="colorStore.primaryColor"
+          v-model="colorStore.primary"
           :modes="['hex', 'rgba', 'hsla']"
         />
       </v-card-text>
@@ -211,7 +211,7 @@ export default {
     },
     setPrimarycolorAndCloseColorPicker(color) {
       this.showColorPicker = false
-      this.colorStore.primaryColor = color
+      this.colorStore.primary = color
     }
   },
   mounted() {
