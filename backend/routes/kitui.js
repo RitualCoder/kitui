@@ -29,7 +29,6 @@ router.post("/", async function (req, res) {
 
 module.exports = router;
 
-// TODO FUNCTION TREATMENT JSON USER FOR GENERATE CSS FILE
 function generateCssContent(data) {
   console.log(data);
 
@@ -45,6 +44,11 @@ function generateCssContent(data) {
   --dark-variant2-color: ${data.colors.darkVariant2};
   --light-variant1-color: ${data.colors.lightVariant1};
   --light-variant2-color: ${data.colors.lightVariant2};
+
+  --layout-gutter: ${data.layout.grid.gutter}px;
+  --layout-columns: ${data.layout.grid.columns};
+
+  --contrast-color: ${data.colors.contrast};
 }
 
 html, body {
@@ -95,10 +99,30 @@ button {
   border: ${data.components.button.border}px;
 }
 
+.container {
+  display: flex;
+  flex-direction: ${data.layout.container.flexDirection};
+  justify-content: ${data.layout.container.justifyContent};
+  align-items: ${data.layout.container.alignItems};
+  max-width: ${data.layout.container.maxWidth}px;
+  padding: ${data.layout.container.paddingTop}px ${
+    data.layout.container.paddingRight
+  }px ${data.layout.container.paddingBottom}px ${
+    data.layout.container.paddingLeft
+  }px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--layout-columns), 1fr);
+  grid-gap: var(--layout-gutter);
+}
+
 .button-primary {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--contrast-color);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .button-primary:hover {
@@ -115,7 +139,7 @@ button {
 
 .button-secondary:hover {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--contrast-color);
 }
 
 .button-disabled {
@@ -166,6 +190,29 @@ input[type="text"].input-error:focus {
   padding: ${data.components.card.padding}px;
 }
 `;
+
+  for (let i = 1; i <= data.layout.grid.columns; i++) {
+    cssContent += `
+.col-${i} {
+  grid-column: span ${i};
+}
+  `;
+  }
+
+  data.layout.breakpoints.forEach((breakpoint) => {
+    cssContent += `
+@media screen and (min-width: ${breakpoint.value}px) {
+    `;
+
+    for (let i = 1; i <= data.layout.grid.columns; i++) {
+      cssContent += `
+  .col-${breakpoint.name}-${i} {
+    grid-column: span ${i};
+  }
+      `;
+    }
+    cssContent += "}";
+  });
 
   return cssContent;
 }

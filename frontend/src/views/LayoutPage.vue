@@ -265,7 +265,7 @@
                 :color="colorStore.primary"
                 step="1"
                 :min="350"
-                :max="layoutStore.breakpoints.md - 100"
+                :max="layoutStore.breakpoints.md"
                 hide-details
               />
             </div>
@@ -304,8 +304,8 @@
                 v-model="layoutStore.breakpoints.md"
                 :color="colorStore.primary"
                 step="1"
-                :min="layoutStore.breakpoints.sm + 100"
-                :max="layoutStore.breakpoints.lg - 100"
+                :min="layoutStore.breakpoints.sm"
+                :max="layoutStore.breakpoints.lg"
                 hide-details
               />
             </div>
@@ -344,7 +344,7 @@
                 v-model="layoutStore.breakpoints.lg"
                 :color="colorStore.primary"
                 step="1"
-                :min="layoutStore.breakpoints.md + 100"
+                :min="layoutStore.breakpoints.md"
                 :max="1920"
                 hide-details
               />

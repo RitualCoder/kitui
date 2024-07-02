@@ -18,12 +18,11 @@ export const useLayoutStore = defineStore('layout', {
         columns: 12,
         gutter: 16
       },
+      maxWidth: 1400,
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'row'
     }
   },
-
-  actions: {},
   persist: true
 })

@@ -9,12 +9,8 @@ export const useColorStore = defineStore('color', {
       darkVariant1: '#5438A4',
       darkVariant2: '#5438A4',
       lightVariant1: '#5438A4',
-      lightVariant2: '#5438A4'
-    }
-  },
-  actions: {
-    setPrimaryColor(color) {
-      this.primaryColor = color
+      lightVariant2: '#5438A4',
+      textButton: '#FFFFFF'
     }
   },
   persist: true

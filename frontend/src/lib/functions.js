@@ -15,12 +15,12 @@ export function generateColorVariants(hexColor) {
   }
 
   // Générarion des variantes de couleur
-  const light = shadeColor(0.2)
-  const dark = shadeColor(-0.2)
-  const lightVariant1 = shadeColor(0.4)
-  const lightVariant2 = shadeColor(0.6)
-  const darkVariant1 = shadeColor(-0.4)
-  const darkVariant2 = shadeColor(-0.6)
+  const light = shadeColor(0.3)
+  const dark = shadeColor(-0.3)
+  const lightVariant1 = shadeColor(0.6)
+  const lightVariant2 = shadeColor(0.7)
+  const darkVariant1 = shadeColor(-0.6)
+  const darkVariant2 = shadeColor(-0.7)
 
   return {
     light,
@@ -32,7 +32,18 @@ export function generateColorVariants(hexColor) {
   }
 }
 
-export function generateJsonRequest(typographyStore, colorStore, componentStore) {
+export function getContrastingTextColor(hexColor) {
+  console.log(hexColor)
+  let r = parseInt(hexColor.slice(1, 3), 16)
+  let g = parseInt(hexColor.slice(3, 5), 16)
+  let b = parseInt(hexColor.slice(5, 7), 16)
+
+  let luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+
+  return luminance > 0.5 ? '#000000' : '#FFFFFF'
+}
+
+export function generateJsonRequest(typographyStore, colorStore, componentStore, layoutStore) {
   const request = {
     typography: {
       fontFamily: typographyStore.fontFamily,
@@ -72,7 +83,29 @@ export function generateJsonRequest(typographyStore, colorStore, componentStore)
       darkVariant1: colorStore.darkVariant1,
       darkVariant2: colorStore.darkVariant2,
       lightVariant1: colorStore.lightVariant1,
-      lightVariant2: colorStore.lightVariant2
+      lightVariant2: colorStore.lightVariant2,
+      contrast: colorStore.textButton
+    },
+    layout: {
+      container: {
+        flexDirection: layoutStore.flexDirection,
+        justifyContent: layoutStore.justifyContent,
+        alignItems: layoutStore.alignItems,
+        maxWidth: layoutStore.maxWidth,
+        paddingTop: layoutStore.padding.top,
+        paddingBottom: layoutStore.padding.bottom,
+        paddingLeft: layoutStore.padding.left,
+        paddingRight: layoutStore.padding.right
+      },
+      grid: {
+        columns: layoutStore.grid.columns,
+        gutter: layoutStore.grid.gutter
+      },
+      breakpoints: [
+        { name: 'md', value: layoutStore.breakpoints.sm },
+        { name: 'lg', value: layoutStore.breakpoints.md },
+        { name: 'xl', value: layoutStore.breakpoints.lg }
+      ]
     },
     components: {
       button: {

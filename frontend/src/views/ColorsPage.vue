@@ -139,7 +139,7 @@
 
 <script>
 import { mapStores } from 'pinia'
-import { generateColorVariants } from '@/lib/functions'
+import { generateColorVariants, getContrastingTextColor } from '@/lib/functions'
 import { useColorStore } from '@/stores/colorStore'
 
 export default {
@@ -159,8 +159,8 @@ export default {
     this.colorStore.lightVariant2 = variants.lightVariant2
     this.colorStore.darkVariant1 = variants.darkVariant1
     this.colorStore.darkVariant2 = variants.darkVariant2
-  },
-  methods: {}
+    this.colorStore.textButton = getContrastingTextColor(this.colorStore.primary)
+  }
 }
 </script>
 

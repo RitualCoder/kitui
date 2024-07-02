@@ -19,7 +19,5 @@ export const useComponentStore = defineStore('component', {
       }
     }
   },
-
-  actions: {},
   persist: true
 })

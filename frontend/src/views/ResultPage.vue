@@ -267,6 +267,7 @@ import { mapStores } from 'pinia'
 import { useColorStore } from '@/stores/colorStore'
 import { useTypoStore } from '@/stores/typoStore'
 import { useComponentStore } from '../stores/componentStore'
+import { useLayoutStore } from '../stores/layoutStore'
 import cardContainer from '../components/cardContainer.vue'
 import { generateJsonRequest } from '@/lib/functions'
 
@@ -288,7 +289,7 @@ export default {
   },
 
   computed: {
-    ...mapStores(useTypoStore, useColorStore, useComponentStore)
+    ...mapStores(useTypoStore, useColorStore, useComponentStore, useLayoutStore)
   },
 
   mounted() {
@@ -302,7 +303,7 @@ export default {
       this.isMobile = window.innerWidth < 900
     },
     async handleSubmit() {
-      const data = generateJsonRequest(this.typoStore, this.colorStore, this.componentStore)
+      const data = generateJsonRequest(this.typoStore, this.colorStore, this.componentStore, this.layoutStore)
 
       const response = await fetch('http://localhost:3000/api', {
         method: 'POST',

@@ -34,23 +34,5 @@ export const useTypoStore = defineStore('typo', {
       }
     }
   },
-
-  actions: {
-    changeFontSize(size, value) {
-      if (this[size]) {
-        this[size].fontSize = value
-        console.log(`Updated ${size} fontSize to`, value)
-      } else {
-        console.warn(`Invalid size: ${size}`)
-      }
-    },
-    changeFontWeight(size, value) {
-      if (this[size]) {
-        this[size].fontWeight = value
-      } else {
-        console.warn(`Invalid size: ${size}`)
-      }
-    }
-  },
   persist: true
 })
