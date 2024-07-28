@@ -314,7 +314,7 @@ import { useTypoStore } from '@/stores/typoStore'
 import { useComponentStore } from '../stores/componentStore'
 import { useLayoutStore } from '../stores/layoutStore'
 import cardContainer from '../components/cardContainer.vue'
-import { generateJsonRequest } from '@/lib/functions'
+import { generateJsonRequest, generateCssContent } from '@/lib/utils'
 
 export default {
   name: 'ComponentsPage',
@@ -355,26 +355,28 @@ export default {
         this.layoutStore
       )
 
-      const response = await fetch('http://localhost:3000/api', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ data })
-      })
+      const cssContent = generateCssContent(data)
 
-      if (response.ok) {
-        const blob = await response.blob()
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = url
-        link.download = 'style.css'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      } else {
-        console.log('Error')
-      }
+      // Create a blob from the CSS content
+      const blob = new Blob([cssContent], { type: 'text/css' })
+
+      // Create a link element
+      const link = document.createElement('a')
+
+      // Set the download attribute with a filename
+      link.download = 'styles.css'
+
+      // Create a URL for the blob and set it as the href attribute
+      link.href = window.URL.createObjectURL(blob)
+
+      // Append the link to the body (required for Firefox)
+      document.body.appendChild(link)
+
+      // Programmatically click the link to trigger the download
+      link.click()
+
+      // Remove the link from the document
+      document.body.removeChild(link)
     }
   }
 }

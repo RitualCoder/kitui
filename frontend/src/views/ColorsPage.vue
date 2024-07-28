@@ -139,7 +139,7 @@
 
 <script>
 import { mapStores } from 'pinia'
-import { generateColorVariants, getContrastingTextColor } from '@/lib/functions'
+import { generateColorVariants, getContrastingTextColor } from '@/lib/utils'
 import { useColorStore } from '@/stores/colorStore'
 
 export default {
